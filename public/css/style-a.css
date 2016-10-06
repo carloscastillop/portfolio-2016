@@ -1,0 +1,17 @@
+@keyframes animatedBackground {
+    from { background-position: 0 0; }
+    to { background-position: 0 100%; }
+}
+@-webkit-keyframes animatedBackground {
+    from { background-position: 0 0; }
+    to { background-position: 0 100%; }
+}
+@-ms-keyframes animatedBackground {
+    from { background-position: 0 0; }
+    to { background-position: 0 100%; }
+}
+@-moz-keyframes animatedBackground {
+    from { background-position: 0 0; }
+    to { background-position: 0 100%; }
+}
+

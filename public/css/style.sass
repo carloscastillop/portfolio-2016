@@ -1,0 +1,654 @@
+/* HEXA */
+$colorPrimero: #BFBFBF
+$colorSegundo: #F2F2F2
+$colorTercero: #595856
+$colorCuarto: #403F3C
+$colorQuinto: #8C8C8B
+
+
+
+html
+    font-family: 'Michroma', sans-serif
+
+body
+    padding-top: 50px
+    color: $colorTercero
+    letter-spacing: 0.5px
+    font-weight: lighter
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1)
+
+p
+    font-family: 'Open Sans', sans-serif
+    color: $colorTercero
+    text-shadow: none
+    font-size: 11px
+    line-height: 1.3
+    letter-spacing: normal
+
+.top10
+    margin-top: 10px
+
+.top20
+    margin-top: 20px
+
+.top30
+    margin-top: 30px
+
+.top40
+    margin-top: 40px
+
+.top50
+    margin-top: 40px
+
+.bottom10
+    margin-bottom: 10px
+
+.bottom20
+    margin-bottom: 20px
+
+.bottom30
+    margin-bottom: 30px
+
+.bottom40
+    margin-bottom: 40px
+
+.navbar-inverse
+    #navbar-main
+        ul.nav.navbar-nav
+            li a:hover
+                background-color: $colorQuinto
+                color: $colorSegundo
+            li.active a
+                background-color: $colorSegundo
+                &:hover
+                    background-color: $colorQuinto
+
+.cover-photo
+    position: relative
+
+.profile-thumb
+    float: left
+    position: relative
+    img
+        width: 140px
+        height: 140px
+        border-radius: 50%
+        -webkit-border-radius: 50%
+        margin-top: -90px
+        border: 3px solid #fff
+        position: absolute
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+        &:hover
+            cursor: pointer 
+.fb-name
+    bottom: 5px
+    left: 175px
+    position: absolute
+    h2 
+        text-rendering: optimizelegibility
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 1)
+        font-size: 25px
+        a
+            color: $colorSegundo  
+            &:hover
+                text-decoration: none
+                color: $colorPrimero
+    h1 
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 1)
+        font-size: 15px
+        margin: 5px 0 5px 0
+        a
+            color: $colorSegundo
+            &:hover
+                text-decoration: none
+                color: $colorPrimero
+
+.socialInfoContainer
+    margin: 0px 0 0 160px
+    display: inline-block
+
+.social-icons
+    list-style: none
+    padding: 0
+    margin: 0
+    float: left
+    margin-left: 15px
+
+.social-icons > li 
+    display: inline-block
+
+.social-icons > li > a
+    background: $colorSegundo
+    display: block
+    margin: 0 8px 8px 0
+    text-align: center
+    line-height: 32px
+    font-size: 14px
+    height: 32px
+    width: 32px
+    color: $colorTercero
+
+.social-icons > li > a:hover
+    background: $colorTercero
+    color: $colorSegundo
+.social-icons > li > a:focus
+    background: $colorTercero
+    color: $colorSegundo
+
+.fb-user-mail
+    float: left
+    margin-top: 10px
+
+a.fb-user-mail
+    color: $colorTercero
+    &:hover
+        text-decoration: none
+        color: $colorCuarto
+
+.full-width
+    background: #333
+    height: 150px
+    width: 100%
+    /*background: url(/images/astronaut1.jpg) no-repeat center center fixed*/
+    background: url('/images/black.jpg')
+    background-position: 0px 0px
+    background-repeat: repeat-x
+    -webkit-background-size: cover
+    -moz-background-size: cover
+    -o-background-size: cover
+    background-size: cover
+    animation: animatedBackground 90s linear infinite
+    -ms-animation: animatedBackground 90s linear infinite
+    -moz-animation: animatedBackground 90s linear infinite
+    -webkit-animation: animatedBackground 90s linear infinite
+
+.panel.panelTopCCP
+    border-top-right-radius: 0
+    border-top-left-radius: 0
+
+.panel
+    border-color: #f2f2f2
+
+.panel-footer
+    background-color: $colorSegundo
+
+.panel.panel-default 
+    .panel-heading
+        background-color: #fff
+        h3
+            margin: 0
+            font-size: 16px
+            color: $colorTercero 
+
+.wp-block
+    margin: 0 0 15px 0
+    -webkit-transition: all .3s linear
+    transition: all .3s linear
+    position: relative
+    cursor: default
+    border-radius: 2px
+
+.no-margin
+    margin: 0 !important
+
+.wp-block.inverse 
+    .figure
+        position: relative
+        img
+            filter: grayscale(100%) /* Current draft standard */
+            -webkit-filter: grayscale(100%) /* New WebKit */
+            -moz-filter: grayscale(100%)
+            -ms-filter: grayscale(100%) 
+            -o-filter: grayscale(100%) /* Not yet supported in Gecko, Opera or IE */ 
+            filter: url(resources.svg#desaturate) /* Gecko */
+            filter: gray /* IE */
+            -webkit-filter: grayscale(1) /* Old WebKit */
+        .thumbnail
+            margin-bottom: 5px
+
+.wp-block.inverse .figure.noFiltro img
+    filter: grayscale(0%) /* Current draft standard */
+    -webkit-filter: grayscale(0%) /* New WebKit */
+    -moz-filter: grayscale(0%)
+    -ms-filter: grayscale(0%) 
+    -o-filter: grayscale(0%) /* Not yet supported in Gecko, Opera or IE */ 
+    filter: none /* Gecko *//* IE */
+    -webkit-filter: grayscale(0) /* Old WebKit */
+                
+
+.wp-block-info-over.left
+    background: transparent
+    border: 0
+    padding: 0
+    position: absolute
+    bottom: 55px
+    left: 0
+    h2
+        font-size: 13px
+        font-weight: normal
+        margin: 0
+        padding: 12px 15px 0 0
+        font-weight: 500
+        font-size: 16px
+        color: $colorSegundo
+        text-transform: none  
+        a
+            padding: 10px 15px 20px 15px
+            margin: 0
+            font-size: 15px
+            text-transform: capitalize
+            font-weight: normal
+            background: $colorCuarto
+            color: $colorSegundo
+            border-top-right-radius: 3px
+            border-bottom-right-radius: 3px
+            &:hover
+                text-decoration: none
+                color: $colorPrimero
+
+
+
+.wp-block.inverse 
+    .title
+        margin: 0
+        padding: 12px 15px 0 0
+        font-weight: 500
+        font-size: 16px
+        color: #333
+        text-transform: none 
+
+.wp-block-info-over
+    width: 100%
+    padding: 10px
+    background: #9cd70e
+    border-top: 1px solid #e0eded
+
+
+.wp-block-info-over.left h2 .label
+    position: absolute
+    bottom: -30px
+    left: 15px
+    padding: .5em .6em .5em
+    background-color: $colorQuinto
+
+.noFiltro .wp-block-info-over.left h2 .label
+    background-color: $colorTercero
+
+.wp-block.inverse h2
+    margin: 0
+    padding: 12px 15px 0 0
+    font-weight: 500
+    font-size: 16px
+    color: #333
+    text-transform: none
+
+.wp-block.inverse .title
+    margin: 0
+    padding: 12px 15px 0 0
+    font-weight: 500
+    font-size: 16px
+    color: #333
+    text-transform: none
+
+footer
+    margin-bottom: 0
+    background-color: $colorCuarto
+    color: $colorPrimero
+    padding: 20px 0
+    p
+        color: $colorPrimero
+    a
+        color: $colorSegundo
+    a:hover
+        color: $colorSegundo
+        text-decoration: underline
+    li
+        border-right: dotted 1px $colorQuinto
+        padding-right: 10px
+        margin-right: 10px
+    li:last-child
+        border-right: none
+        padding-right: 0
+        margin-right: 0
+    li.pull-right
+        border-right: none
+        padding-right: 0
+        margin-right: 0
+
+.btn
+    &.btn-xs
+        font-weight: normal
+        font-size: 10px
+
+.btnEyeHide
+    display: none
+
+.btnEyeOver
+    .btnEyeHide
+        display: block !important
+
+.rc-anchor-error-message
+    font-size: 11px
+
+.itdPartner
+    background-color: $colorTercero
+    margin: 10px 0
+    padding: 5px
+    border-radius: 5px
+    img
+        max-width: 130px
+    p
+        color: $colorPrimero
+        padding: 5px 0 0 5px
+        a
+            color: $colorSegundo
+
+.eachSkill
+    .thumbnail
+        background-color: $colorSegundo
+        border-color: $colorSegundo
+        img
+            filter: grayscale(100%) /* Current draft standard */
+            -webkit-filter: grayscale(100%) /* New WebKit */
+            -moz-filter: grayscale(100%)
+            -ms-filter: grayscale(100%) 
+            -o-filter: grayscale(100%) /* Not yet supported in Gecko, Opera or IE */ 
+            filter: url(resources.svg#desaturate) /* Gecko */
+            filter: gray /* IE */
+            -webkit-filter: grayscale(1) /* Old WebKit */
+            &:hover
+                filter: grayscale(0%) /* Current draft standard */
+                -webkit-filter: grayscale(0%) /* New WebKit */
+                -moz-filter: grayscale(0%)
+                -ms-filter: grayscale(0%) 
+                -o-filter: grayscale(0%) /* Not yet supported in Gecko, Opera or IE */ 
+                filter: none /* Gecko *//* IE */
+                -webkit-filter: grayscale(0) /* Old WebKit */
+        .caption
+            padding: 5px 0
+            h4
+                font-size: 10px
+                margin: 3px 0
+                color: $colorSegundo
+                text-align: center
+
+#recaptchaContainer
+    display: none
+
+.colorPalette
+    padding: 10px 0 0 0
+
+.page-header
+    background: $colorCuarto
+    width: 100%
+    background: url('/images/black.jpg')
+    background-position: 0px 0px
+    background-repeat: repeat-x
+    -webkit-background-size: cover
+    -moz-background-size: cover
+    -o-background-size: cover
+    background-size: cover
+    animation: animatedBackground 90s linear infinite
+    -ms-animation: animatedBackground 90s linear infinite
+    -moz-animation: animatedBackground 90s linear infinite
+    -webkit-animation: animatedBackground 90s linear infinite
+    margin-top: 0
+    h1
+        color: $colorSegundo
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.8)
+        small
+            color: $colorSegundo
+            font-size: 30%
+.breadcrumb
+    background-color: rgba(0,0,0, 0.5)
+    border-color: rgba(0,0,0, 0.4)
+    margin-bottom: 0px 
+    padding-top: 5px 
+    padding-bottom: 5px
+    a
+        color: $colorSegundo
+
+.bs-calltoaction
+    position: relative
+    width:auto
+    padding: 15px 25px
+    border: 1px solid $colorSegundo
+    background-color: $colorSegundo
+    margin-top: 10px
+    margin-bottom: 10px
+    border-radius: 5px
+.bs-calltoaction > .row > [class^="col-"]
+    float:none
+    display:table-cell
+    vertical-align:middle
+
+.bs-calltoaction > .row > [class*=" col-"]
+    float:none
+    display:table-cell
+    vertical-align:middle
+
+.cta-button
+    padding-top: 10px
+    padding-bottom: 10px
+
+.cta-contents
+    h3
+        margin: 10px 0 10px 0
+
+.portfolioList
+    .eachPortfolio
+        margin-bottom: 20px
+    .eachPortfolio.eachPortfolioHover
+        cursor: pointer
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 2px
+        transition: 0.5s
+    .eachPortfolio.eachPortfolioHover .panel-image img
+        -webkit-transform: scale(1.3)
+        transform: scale(1.3)
+    .panel
+        border-top-right-radius: 0
+        border-top-left-radius: 0
+        margin-bottom: 30px
+        .panel-image
+            overflow: hidden                    
+        .panel-image img
+            border-top-right-radius: 3px
+            border-top-left-radius: 3px
+            -webkit-transition: transform .2s ease-out
+            transition: transform .2s ease-out
+        .panel-body
+            padding: 10px
+            .caption
+                padding: 10px
+                background-color: $colorCuarto
+                min-height: 50px
+                h2
+                    margin: 0
+                    padding: 0
+                    font-size: 12px
+                    color: $colorTercero
+                    float: left
+                    &:before
+                        content: ""
+                        display: inline-block
+                        height: 100%
+                        vertical-align: middle
+                    a
+                        color: $colorSegundo
+        .panel-footer
+            padding: 3px 
+            margin-top: 0px
+            background-color: transparent
+        .panel-heading
+            padding: 10px
+            background-color: transparent
+            h2 
+                margin: 0
+                line-height: 0
+                font-weight: bold
+                a
+                    font-size: 14px
+                    color: $colorCuarto
+            
+.modal-load
+    display:    none
+    position:   fixed
+    z-index:    1000
+    top:        0
+    left:       0
+    height:     100%
+    width:      100%
+    background: rgba( 255, 255, 255, .9 ) url('/images/general-loader.gif') 50% 50% no-repeat
+
+.modal-menu-mobile
+    display:    none
+    position:   fixed
+    z-index:    1000
+    top:        0
+    left:       0
+    height:     100%
+    width:      100%
+    background: #333
+    background: url('/images/black.jpg')
+    background-position: 0px 0px
+    background-repeat: repeat-x
+    -webkit-background-size: cover
+    -moz-background-size: cover
+    -o-background-size: cover
+    background-size: cover
+    animation: animatedBackground 90s linear infinite
+    -ms-animation: animatedBackground 90s linear infinite
+    -moz-animation: animatedBackground 90s linear infinite
+    -webkit-animation: animatedBackground 90s linear infinite
+
+body.loading
+    overflow: hidden
+    .modal
+        display: block   
+
+.rowMasonry
+    -moz-column-width: 33em
+    -webkit-column-width: 33em
+    -moz-column-gap: .5em
+    -webkit-column-gap: .5em
+    @media screen and (max-width: 1200px)
+        -moz-column-width: 25em
+        -webkit-column-width: 25em
+
+.panelMasonry 
+    display: inline-block
+    margin: .5em
+    padding: 0
+    width: 98%
+
+body.modal-open #wrap
+    -webkit-filter: blur(7px)
+    -moz-filter: blur(15px)
+    -o-filter: blur(15px)
+    -ms-filter: blur(15px)
+    filter: blur(15px)
+
+.modal-backdrop
+    background: $colorCuarto
+
+.modal
+    background-color: $colorCuarto
+    background: url('/images/black.jpg')
+    background-position: 0px 0px
+    background-repeat: repeat-x
+    -webkit-background-size: cover
+    -moz-background-size: cover
+    -o-background-size: cover
+    background-size: cover
+    .close
+        font-size: 50px
+        display: block
+        &:hover
+            color: #158cba
+.modalContainer
+    margin-top: 0
+    h3
+        color: $colorSegundo
+    h4
+        color: $colorPrimero
+    h5
+        color: $colorPrimero
+    p
+        color: $colorSegundo
+        font-size: 13px
+        font-family: "Michroma",sans-serif
+    .well
+        margin: 20px 0 0 0
+        background-color: rgba(0,0,0, 0.4)
+        border-color: rgba(0,0,0, 0.2)
+    .page-header-2
+        background: rgba(0,0,0, 0.4)
+        border-bottom-color: rgba(0,0,0, 0.4)
+        width: 100%
+        margin-top: 0
+        padding: 20px 0 20px 0
+        h2
+            color: $colorSegundo
+            margin: 0
+            text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.8)
+            font-size: 40px
+.modal .close
+    color: $colorSegundo
+    opacity: 1
+    text-shadow: 1px 3px 3px #000
+.leGallery
+    border: solid 1px #fff
+
+/* Main carousel style */
+.carousel
+    width: 100%
+
+/* Indicators list style */
+.article-slide .carousel-indicators
+    bottom: 0
+    left: 0
+    margin-left: 5px
+    width: 100%
+    /* Indicators list style */
+    li
+        border: medium none
+        border-radius: 0
+        float: left
+        height: 54px
+        margin-bottom: 5px
+        margin-left: 0
+        margin-right: 5px !important
+        margin-top: 0
+        width: 100px
+    /* Indicators images style */
+    img
+        border: 2px solid #FFFFFF
+        float: left
+        height: 54px
+        left: 0
+        width: 100px
+    /* Indicators active image style */
+    .active img
+        border: 2px solid #428BCA
+        opacity: 0.7
+.portfolioModal
+    .SkillsList
+        .eachSkill
+            .thumbnail
+                background-color: rgba(0, 0, 0, 0.2)
+                border: none
+.SkillsList
+    .otherSkill
+        background-color: $colorSegundo
+        margin-bottom: 20px
+        padding-bottom: 10px
+        h3
+            margin: 10px 0 0px 0
+            padding-left: 10px
+            font-size: 20px
+
+.titleSkill
+    margin: 20px 0 30px 0
