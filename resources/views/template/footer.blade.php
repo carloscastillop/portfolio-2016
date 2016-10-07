@@ -10,15 +10,17 @@
                     <li class="{{ (Request::is('contact*') ? 'active' : '') }}"><a href="{{ URL::to('/contact') }}" title="Contact to Carlos Castillo">Contact me</a></li>
                 </ul>
                 <p>Made by <a href="{{ URL::to('/') }}" title="{{ Config::get('settings.sitename') }}">Carlos Castillo</a>.</p>
-                <p>Based on <a href="http://getbootstrap.com" rel="nofollow">Bootstrap</a> and <a href="http://bootswatch.com/" rel="nofollow">Bootswatch</a>. Icons from <a href="http://fortawesome.github.io/Font-Awesome/" rel="nofollow">Font Awesome</a>. Web fonts from <a href="http://www.google.com/webfonts" rel="nofollow">Google</a>.</p>
+                <p>Based on <a href="https://laravel.com" rel="nofollow">Laravel 5</a>, <a href="http://getbootstrap.com" rel="nofollow">Bootstrap 3</a>, <a href="https://jquery.com/JQuery" rel="nofollow">JQuery</a> and <a href="http://bootswatch.com/" rel="nofollow">Bootswatch</a>. Icons from <a href="http://fortawesome.github.io/Font-Awesome/" rel="nofollow">Font Awesome</a>. Web fonts from <a href="http://www.google.com/webfonts" rel="nofollow">Google</a>.</p>
                 
                 <div class="well center-block top20 hidden-lg hidden-md hidden-sm"> 
                     <a href="#top" class="btn btn-primary btn-md btn-block"><i class="fa fa-chevron-up" aria-hidden="true"></i> To top</a>
                 </div>
-
-                <div class="colorPalette hidden">
+                <?php $debug = config('app.debug'); ?>
+                @if( $debug == 1 )
+                <div class="colorPalette">
                     <img src="{{ URL::to('/images/colors.png') }}" alt="Color palette" style="width:100px;">
                 </div>
+                @endif
             </div>
         </div>
     </div>

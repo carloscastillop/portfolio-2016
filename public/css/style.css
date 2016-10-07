@@ -17,6 +17,19 @@ p {
   line-height: 1.3;
   letter-spacing: normal; }
 
+.form-control::-moz-placeholder {
+  color: #BFBFBF;
+  opacity: 1; }
+
+.form-control:-ms-input-placeholder {
+  color: #BFBFBF; }
+
+.form-control::-webkit-input-placeholder {
+  color: #BFBFBF; }
+
+.block-text {
+  display: block; }
+
 .top10 {
   margin-top: 10px; }
 

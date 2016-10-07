@@ -27,8 +27,11 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/get-my-cv', function () {
-    return view('get-my-cv');
-});
+/*=======================*/
+/* ===== CV REQUEST ==== */
+/*=======================*/
+
+Route::get('get-my-cv',	['as' => 'get-my-cv', 'uses' => 'CvrequestController@create']);
+Route::post('get-my-cv',['as' => 'get-my-cv-store', 'uses' => 'CvrequestController@store']);
 
 
