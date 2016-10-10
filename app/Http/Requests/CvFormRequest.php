@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Requests;
+namespace Portfolio\Http\Requests;
 
-use App\Http\Requests\Request;
+use Portfolio\Http\Requests\Request;
 
 class CvFormRequest extends Request
 {
@@ -24,8 +24,9 @@ class CvFormRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'required',
-            'email' => 'required|email'
+            'name'      => 'required|min:1|max:255',
+            'company'   => 'required|min:1|max:255',
+            'email'     => 'required|email|max:255'
         ];
     }
 }

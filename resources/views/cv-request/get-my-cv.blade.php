@@ -31,6 +31,13 @@
                 </ul>
             </div>
             @endif
+            @if(Session::has('mensajeError'))
+            <div class="alert alert-danger" role="alert">
+                <i class="fa fa-frown-o fa-3x " aria-hidden="true"></i> <strong>Oooops!!</strong>
+                <br><br>
+                {{Session::get('mensajeError')}}
+            </div>
+            @endif
             @if(Session::has('message'))
             <div class="alert alert-success" role="alert">
                 <a href="{{ URL::to('get-my-cv') }}" class="close" aria-label="Resfreh"><span aria-hidden="true">&times;</span></a>
@@ -50,7 +57,7 @@
                         {!! Form::text('name', null, 
                             array('', 
                                   'class'=>'form-control input-lg', 
-                                  'placeholder'=>'Your name')) !!}
+                                  'placeholder'=>'Elon Musk')) !!}
                     </div>
 
                     <div class="form-group">
@@ -60,10 +67,19 @@
                                   'class'=>'form-control input-lg', 
                                   'placeholder'=>'nickname@domain.com')) !!}
                     </div>
+
+                    <div class="form-group">
+                        {!! Form::label('Your company *') !!}
+                        {!! Form::text('company', null, 
+                            array('', 
+                                  'class'=>'form-control input-lg', 
+                                  'placeholder'=>'Space X')) !!}
+                    </div>
+
                     <hr>
                     <div class="form-group">
                         {!! Form::button('<i class="fa fa-envelope" aria-hidden="true"></i> Get my CV!', 
-                          array('type' => 'submit', 'class'=>'btn btn-primary btn-lg btn-block')) !!}
+                          array('type' => 'submit', 'class'=>'btn btn-primary btn-lg btn-block btnStar btnClick')) !!}
                     </div>
                     <p class="help-text">(*) Required fields</p>
                 {!! Form::close() !!}

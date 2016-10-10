@@ -114,6 +114,9 @@
 
     $('[data-toggle="tooltip"]').tooltip()
     
+    $('.btnClick').click(function(e){
+        $(this).attr('disabled', true);
+    });
     
     $('.navbar-toggle').click(function(){
         if($(".navbar-collapse.collapse.in").length){
@@ -131,6 +134,7 @@ $( document ).ready(function() {
       closeEffect : 'none'
     });
 
+    $(".btnStar").fadeIn();
 
 });
 

@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://carloscastillo.local'),
 
     /*
     |--------------------------------------------------------------------------
@@ -151,15 +151,20 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        Portfolio\Providers\AppServiceProvider::class,
+        Portfolio\Providers\AuthServiceProvider::class,
+        Portfolio\Providers\EventServiceProvider::class,
+        Portfolio\Providers\RouteServiceProvider::class,
 
         /*
         * Forms & HTML ...
         */
         Collective\Html\HtmlServiceProvider::class,
+
+        /*
+        * DEBUGBAR https://github.com/barryvdh/laravel-debugbar ...
+        */
+        Barryvdh\Debugbar\ServiceProvider::class,
 
     ],
 
@@ -208,6 +213,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
     ],
 
