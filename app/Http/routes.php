@@ -12,19 +12,34 @@
 */
 
 Route::get('/', function () {
-    return view('home'); 
+    $skills = \Portfolio\Skill::where('active',1)->where('skill_categories_id',1)->orderBy('order', 'asc')->take(12)->get();
+    return view('home')->with('skills', $skills); 
 });
 
 Route::get('/portfolio', function () {
     return view('portfolio');
 });
 
+/// detalle portfolio
+Route::get('/portfolio/{slug}/{id}', function ($slug, $id) {
+    return view('portfolio-detail');
+})->where('id', '[0-9]+');
+
 Route::get('/skills-competences', function () {
-    return view('skills-competences');
+	$skills = \Portfolio\Skill::where('active',1)->orderBy('order', 'asc')->where('skill_categories_id',1)->get();
+	$others = \Portfolio\Skill::where('active',1)->orderBy('order', 'asc')->where('skill_categories_id',2)->get();
+    return view('skills-competences')
+    		->with('skills', $skills) 
+    		->with('others', $others);
 });
 
 Route::get('/contact', function () {
     return view('contact');
+});
+
+
+Route::get('/login', function () {
+    return \Redirect::to('backend'); 
 });
 
 /*=======================*/
@@ -40,6 +55,35 @@ Route::get('cv-request/yes/{codigo}', array('codigo' => 'codigo', 'uses' => 'Cvr
 
 //NO ACCEPT CV SEND
 Route::get('cv-request/no/{codigo}', array('codigo' => 'codigo', 'uses' => 'CvrequestController@noCvRequest'));
+
+
+
+/*=======================*/
+/*=======================*/
+/* ====== ADMIN ======== */
+/*=======================*/
+/*=======================*/
+
+//LOGIN
+Route::get( '/backend'           		,'AdminController@adminWelcome');
+Route::post('/backend/login'         	,'AdminController@adminDoLogin');
+Route::get( '/exit'               		,'AdminController@doLogout');
+
+$router->group(['middleware' => 'auth'], function($router) {
+
+	Route::group(['prefix' => 'backend'], function() {
+	    
+	    //DASHBOARD
+	    Route::get('/dashboard'        ,'AdminController@adminDashboard');
+
+	    //SKILLs
+	    Route::resource('skills'	   ,'SkillController');
+	    Route::post('skills/image'     ,'SkillController@uploadImage');
+	    Route::post('skills/imagecrop'   ,'SkillController@uploadImageCrop');
+
+	});
+});
+
 
 
 

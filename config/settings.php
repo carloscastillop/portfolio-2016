@@ -22,7 +22,6 @@ $setting_data['contactoEmailTo']  	='info@candyspot.cl';
 $setting_data['contactoNameTo']  	="CandySpot";
 
 
-
 //////ARCHIVOS
 $setting_data['maxUploadTxt']  	='2MB';
 $setting_data['anchoFoto']  	= 640; //Config::get('settings.anchoFoto')
@@ -31,7 +30,8 @@ $setting_data['maxUpload']  	='2000';
 $setting_data['uploadFolder']  	=$_SERVER["DOCUMENT_ROOT"];
 $setting_data['uploadImagesProducts']  ="/uploads/products/";
 
-
+////USER
+$setting_data['uploadCV']  		="/uploads/cv/"; //Config::get('settings.uploadCV')
 
 /////CHAT
 //$setting_data['elChat'] = Chat::find(1); //Config::get('settings.elChat')

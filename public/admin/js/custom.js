@@ -742,8 +742,6 @@ $(document).ready(function() {
 
 
     ///// MODAL VER EXPERIENCIA 
-
-
     $(".btnVerExperiencia").click(function(e){
         e.preventDefault();
         var id      = $(this).attr("id");
@@ -775,6 +773,65 @@ $(document).ready(function() {
     $('.movilFormat').mask('0 0000 0000');
     $('.horaFormat').mask('00:00', {clearIfNotMatch: true, placeholder: "HH:MM"});
 
+    if($('.skillsFormCreate').length){
+        if($('.alert.alert-danger').length){
+        }else{
+            $("select[name='category']").prop('selectedIndex',0);
+        }
+    }
+    function skillImage(){
+        var valor=$("select[name='category']").val();
+        if(valor==1){ // Web development
+            $("#skillFormGroup").fadeIn();
+            $("#skillOtherFormGroup").hide();
+        }else if(valor==2){
+            $("#skillFormGroup").hide();
+            $("#skillOtherFormGroup").fadeIn();
+        }else{
+            $("#skillFormGroup").hide();
+            $("#skillOtherFormGroup").hide();
+        }
+    }
+    function getNameImageUploaded(){
+        var laImg = $('.croppedImg').attr('src');
+        alertify.log('laImg: '+laImg);
+    }
+    if($('.skillsForm').length || $('.skillsFormEdit').length){
+        $("select[name='category']").on('change', function() {
+            skillImage();
+        });
+        var eyeCandy = $('#yourId');
+        var croppedOptions = {
+            modal:true,
+            uploadUrl: '/backend/skills/image',
+            cropUrl: '/backend/skills/imagecrop',
+            outputUrlId:'myPhoto',
+            loaderHtml:'<div class="loader bubblingG"><span id="bubblingG_1"></span><span id="bubblingG_2"></span><span id="bubblingG_3"></span></div> ',
+            onAfterImgUpload:   function(){ getNameImageUploaded(); },
+            onError:        function(errormsg){ alertify.error('onError:'+errormsg)},
+            uploadData:{
+                "_token": $("input[name='_token']").val(),
+            },
+            cropData:{
+                'width' : eyeCandy.width(),
+                'height': eyeCandy.height(),
+                "_token": $("input[name='_token']").val(),
+            }
+        };
+        var cropperBox = new Croppic('yourId', croppedOptions);
+
+        
+        $("#resetUpload").click(function(){
+            cropperBox.reset(); 
+        });
+        
+    }
+
+    $("#showImageSkillBtn").click(function(){
+        $('#showImageSkill').hide();
+        $('#showImageSkillNew').fadeIn();
+    });
+    
 });
 
 

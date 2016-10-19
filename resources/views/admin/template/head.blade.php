@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Admin">
-    <meta name="author" content="ccastillo@itdchile.cl">
+    <meta name="author" content="info@carloscastillo.cl">
 
     <title>{{ isset($seoTitle) ? $seoTitle : 'Admin' }} | {{ Config::get('settings.sitename') }}</title>
 
@@ -35,7 +35,10 @@
     <!-- Alertify CSS -->
     <link href="{{ URL::to('/') }}/admin/alertify.core.css" rel="stylesheet">
     <link href="{{ URL::to('/') }}/admin/alertify.default.css" rel="stylesheet">
-    
+
+    <!-- croppic http://www.croppic.net/ -->
+    <link href="{{ URL::to('/') }}/admin/js/croppic/croppic.css" rel="stylesheet">
+
     <!-- DataTables CSS -->
     <link href="{{ URL::to('/') }}/admin/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
 

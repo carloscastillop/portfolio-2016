@@ -48,8 +48,8 @@ a {
   margin-top: 0;
 }
 .navbar-default {
-  background-color: #666480;
-  border-color: #D8817F;
+  background-color: #403F3C;
+  border-color: #403F3C;
 }
 
 .btn-primary {
@@ -83,12 +83,12 @@ a {
 	color:#fff;
 }
 .sidebar ul li a.active {
-  background-color: #D8817F;
+  background-color: #8C8C8B;
 }
 .nav > li > a:focus, .nav > li > a:hover {
   background-color: #eee;
   text-decoration: none;
-  color:#666480;
+  color:#8C8C8B;
 }
 .nav > li > a {
   color: #fff;
@@ -97,7 +97,7 @@ a {
   background-color: #666480;
 }
 li.active ul.nav.nav-second-level.collapse.in li{
-  background-color: #F19A97;
+  background-color: #8C8C8B;
 }
 .btn-primary:active,
 .btn-primary:focus,
@@ -455,8 +455,8 @@ form#perfilForm.form .card.hovercard .avatar{
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
   color: #fff !important;
   font-weight: bold;
-  background-color: #666480;
-  border:solid 1px #666480;
+  background-color: #403F3C;
+  border:solid 1px #403F3C;
 
 }
 .nav-tabs {
@@ -500,3 +500,11 @@ textarea#expDescription{
   border-left: solid 10px #fff;
   padding-left: 14px;
 }
+
+#yourId {
+      width: 640px;
+      height: 480px;
+      position:relative; /* or fixed or absolute */
+      background-color: #f2f2f2;
+    }
+

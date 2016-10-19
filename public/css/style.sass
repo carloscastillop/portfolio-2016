@@ -361,7 +361,8 @@ footer
     .thumbnail
         background-color: $colorSegundo
         border-color: $colorSegundo
-        img
+        height: 170px
+        imgX
             filter: grayscale(100%) /* Current draft standard */
             -webkit-filter: grayscale(100%) /* New WebKit */
             -moz-filter: grayscale(100%)
@@ -385,6 +386,12 @@ footer
                 margin: 3px 0
                 color: $colorSegundo
                 text-align: center
+        @media screen and (max-width: 1200px)
+            height: 140px
+        @media screen and (max-width: 1024px)
+            height: 160px
+        @media screen and (max-width: 800px)
+            height: auto
 
 #recaptchaContainer
     display: none

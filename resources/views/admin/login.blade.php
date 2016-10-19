@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
 
@@ -44,17 +44,21 @@
                 </div>
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Bienvenido Admin</h3>
+                        <h3 class="panel-title">Welcome Admin!</h3>
                     </div>
                     <div class="panel-body">
                         
-                        {{ Form::open(array('url' => 'backend-login')) }}
+                        {{ Form::open(array('url' => '/backend/login')) }}
                             <fieldset>
                                 @if ($errors->any())
-                                <div role="alert" class="alert alert-danger">
-                                    <strong>Ups!</strong> <br/>
-                                    {{ HTML::ul($errors->all()) }}
-                                </div>
+                                    <div role="alert" class="alert alert-danger">
+                                        <strong>Ups!</strong> <br/>
+                                        <ul>
+                                            @foreach($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
                                 @endif
                                 @if (Session::has('messageError'))
                                 <div role="alert" class="alert alert-danger">
@@ -62,19 +66,22 @@
                                     {{Session::get('messageError')}}
                                 </div>
                                 @endif
-
                                 <div class="form-group">
-                                    {{ Form::label('email', 'E-mail') }}
-                                    {{ Form::text('email', Input::old('email'), array('class'=>'form-control', 'placeholder' => 'awesome@awesome.com')) }}
+                                    {!! Form::label('email', 'E-mail*') !!}
+                                    {!! Form::text('email', null, 
+                                        array('', 
+                                              'class'=>'form-control input-lg', 
+                                              'placeholder'=>'awesome@awesome.com')) !!}
                                 </div>
+                                
                                 <div class="form-group">
-                                    {{ Form::label('email', 'Contraseña') }}
-                                    {{ Form::password('password', array('class'=>'form-control', 'placeholder' => 'Contaseña')) }}
+                                    {{ Form::label('password', 'Password*') }}
+                                    {{ Form::password('password', array('class'=>'form-control input-lg', 'placeholder' => 'Password')) }}
                                 </div>
                                 <div class="checkbox">
                                     <label for="rememberme">
                                         <input type="checkbox" name="rememberme" id="rememberme">
-                                        Recordarme
+                                        Rememberme
                                         </label>
                                 </div>
 

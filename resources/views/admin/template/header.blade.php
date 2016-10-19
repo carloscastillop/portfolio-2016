@@ -30,7 +30,7 @@
                     <li><a href="#" title="Perfil {{ Auth::user()->name }}"><i class="fa fa-user fa-fw"></i> {{ Auth::user()->name }}</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="{{ URL::to('exit') }}"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
+                    <li><a href="{{ URL::to('exit') }}" title="Logout"><i class="fa fa-sign-out fa-fw"></i> Exit</a>
                     </li>
                 </ul>
                 <!-- /.dropdown-user -->
@@ -46,7 +46,11 @@
                         <a href="{{ URL::to('/backend') }}"><i class="fa fa-dashboard fa-fw"></i> Inicio</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-dollar"></i> Compras<span class="fa arrow"></span></a>
+                        <a href="{{ URL::to('/backend/skills') }}"><i class="fa fa-trophy"></i> Skills</a>
+                    </li>
+                    <?php /* 
+                    <li>
+                        <a href="#"><i class="fa fa-trophy"></i> Skills<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="{{ URL::to('/backend/compras') }}" title="Compras realizadas">Compras realizadas</a>
@@ -66,6 +70,7 @@
                                                      
                         </ul>
                         <!-- /.nav-second-level -->
+                        -->
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-users"></i> Usuarios<span class="fa arrow"></span></a>
@@ -128,10 +133,11 @@
                         <!-- /.nav-second-level -->
                     </li>
                     
+                     */ ?>
                     
 
                     <li>
-                        <a href="{{ URL::to('/exit') }}"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
+                        <a href="{{ URL::to('/exit') }}"><i class="fa fa-sign-out fa-fw"></i> Exit</a>
                     </li>
                 
                 

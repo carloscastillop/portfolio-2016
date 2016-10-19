@@ -343,8 +343,9 @@ footer {
 
 .eachSkill .thumbnail {
   background-color: #F2F2F2;
-  border-color: #F2F2F2; }
-  .eachSkill .thumbnail img {
+  border-color: #F2F2F2;
+  height: 170px; }
+  .eachSkill .thumbnail imgX {
     filter: grayscale(100%);
     -webkit-filter: grayscale(100%);
     -moz-filter: grayscale(100%);
@@ -353,7 +354,7 @@ footer {
     filter: url(resources.svg#desaturate);
     filter: gray;
     -webkit-filter: grayscale(1); }
-    .eachSkill .thumbnail img:hover {
+    .eachSkill .thumbnail imgX:hover {
       filter: grayscale(0%);
       -webkit-filter: grayscale(0%);
       -moz-filter: grayscale(0%);
@@ -368,6 +369,15 @@ footer {
       margin: 3px 0;
       color: #F2F2F2;
       text-align: center; }
+  @media screen and (max-width: 1200px) {
+    .eachSkill .thumbnail {
+      height: 140px; } }
+  @media screen and (max-width: 1024px) {
+    .eachSkill .thumbnail {
+      height: 160px; } }
+  @media screen and (max-width: 800px) {
+    .eachSkill .thumbnail {
+      height: auto; } }
 
 #recaptchaContainer {
   display: none; }
@@ -644,5 +654,8 @@ body.modal-open #wrap {
   border-top: 10px solid pink;
   border-image: repeating-linear-gradient(-45deg, #FF4136, #FF4136 3%, #f2f2f2 1%, #f2f2f2 5%) 10;
   border-bottom: none; }
+
+.btnStar {
+  display: none; }
 
 /*# sourceMappingURL=style.css.map */

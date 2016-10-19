@@ -31,6 +31,9 @@
   toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
    selector:'.editorTexto',
    content_css : '/css/bootstrap.css'   });</script>
+    
+    <!-- croppic http://www.croppic.net/ -->
+    <script src="{{ URL::to('/') }}/admin/js/croppic/croppic.min.js"></script>
 
     <!-- Custom Carlos -->
     <script src="{{ URL::to('/') }}/admin/js/custom.js"></script>

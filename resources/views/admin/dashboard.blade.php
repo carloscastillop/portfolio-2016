@@ -3,7 +3,7 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Log sistema</h1>
+        <h1 class="page-header">System log</h1>
     </div>
     <!-- /.col-lg-12 -->
 </div>
@@ -12,13 +12,13 @@
 	<div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Lista ultimos Logs
+                Last logs
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
 
                 <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#web" aria-controls="home" role="tab" data-toggle="tab">Consola web</a></li>
+                    <li role="presentation" class="active"><a href="#web" aria-controls="home" role="tab" data-toggle="tab">Web console</a></li>
                     
                 </ul>
 
@@ -31,18 +31,16 @@
                                 <thead>
                                     <tr>
                                         <th style="width: 75px;">#</th>
-                                        <th style="width: 150px;">Fecha</th>
-                                        <th>Descripción</th>
-                                        <th>User</th>
+                                        <th style="width: 150px;">Date</th>
+                                        <th>Description</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                	@foreach($log as $key => $value)
+                                	@foreach($logs as $key => $value)
                                     <tr>
                                         <td>{{ $value->id }}</td>
-                                        <td>{{ Comunes::cambiaf_normal_hora($value->created_at) }}</td>
+                                        <td>{{ $value->created_at }}</td>
                                         <td><small>{{ $value->description }}</small></td>
-                                        <td>{{ $value->user_id }}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>

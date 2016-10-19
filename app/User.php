@@ -4,6 +4,9 @@ namespace Portfolio;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use Illuminate\Database\Eloquent\Model;
+
+
 class User extends Authenticatable
 {
     /**
@@ -27,5 +30,10 @@ class User extends Authenticatable
     public function cvrequests()
     {
         return $this->hasMany('Portfolio\Cvrequest', 'users_id');
+    }
+
+    public function skills()
+    {
+        return $this->hasMany('Portfolio\Skill', 'users_id');
     }
 }

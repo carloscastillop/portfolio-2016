@@ -27,32 +27,28 @@ class CvrequestController extends Controller
     {
 
         $cv            = new Cvrequest;
-        $cv->email     = ucwords(strtolower($request->get('email')));
+        $cv->email     = strtolower($request->get('email'));
         $cv->company   = ucwords(strtolower($request->get('company')));
-        $cv->name      = strtolower($request->get('name'));
+        $cv->name      = ucwords(strtolower($request->get('name')));
         $cv->users_id  = 1;
         $cv->IP        = $request->ip();
         $cv->code      = md5($cv->email."-".date('YmdHis')."-".rand(1000,9999));
         $cv->active    = 1;
         $cv->save();
 
-        \Mail::send('emails.cv-request',
-		    array(
-		        'name'    => $cv->name,
-		        'email'   => $cv->email,
-                'company' => $cv->company,
-                'ip'      => $cv->IP,
-                'code'    => $cv->code      
-            ), function($message) use ($cv)
-		{
-		    $message->to('portfolio@fionaycarlos.cl', 'Carlos Castillo')
-		    	->subject('New CV request from '.$cv->name);
-		});
 
-    	return \Redirect::route('get-my-cv')
-      		->with('message', 'The system will validate your email, if all is OK, you will receive an email with my CV. Thank you!! ');
+        if(SendMailController::sendMailAdminCvRequest($cv)){
+            return \Redirect::route('get-my-cv')
+            ->with('message', 'The system will validate your email, if all is OK, you will receive an email with my CV. Thank you!! ');
+        }else{
+            echo "ERROR"; exit;
+        }
+
+    	
     }
 
+
+    ///CUANDO LOS DATOS SON ACEPTADOS PARA ENVIAR EL EMAIL
     public function yesCvRequest($codigo)
     {
         $query          = array('code' => $codigo);
@@ -61,12 +57,34 @@ class CvrequestController extends Controller
             );
         $validator = Validator::make($query, $rules);
         if ($validator->fails()) {
-            echo 'ERROR'; exit;
-            //return Redirect::to('/lista?error-novios')->withErrors($validator);
+            echo 'ERROR CODIGO '.$codigo.' -> '.$validator->errors()->first(); exit;
         } else {
             /// Se acepta el codigo y se envia el link para descargar el email
+            $code = Cvrequest::where('code', $codigo)->first();
+            if(!$code){
+                echo "ERROR no existe codigo ".$codigo;
+                return false;
+            }
 
-            echo 'OK'; exit;
+            $user = \Portfolio\User::find($code->users_id)->first();
+            if(!$user){
+                echo "ERROR no existe USER ".$code->users_id;
+                return false;
+            }
+
+            $timeSend       = intval($code->sends);
+            $code->send_at  = \Carbon\Carbon::now();
+            $code->sends    = $timeSend+1;
+            $code->save(); 
+
+            if(SendMailController::sendMailuserCvRequestYes($code, $user)){
+                echo 'OK, email sended'; exit;
+            }else{
+                echo 'Ha ocurrido un error al enviar el email'; exit;
+            }
+            
+
+            
         }
         
     }
