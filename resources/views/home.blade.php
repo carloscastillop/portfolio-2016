@@ -70,7 +70,7 @@
                     <div class="row SkillsList">
                         @foreach($skills as $skill)
                         <div class="col-xs-6 col-sm-3 col-md-2 eachSkill">
-                            <div class="thumbnail" data-toggle="tooltip" data-placement="bottom" title="{{ $skill->name }}">
+                            <div class="thumbnail home" data-toggle="tooltip" data-placement="bottom" title="{{ $skill->name }}">
                                 {!! $skill->image !!}
                             </div>
                         </div>

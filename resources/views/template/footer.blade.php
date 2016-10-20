@@ -5,8 +5,9 @@
                 <ul class="list-unstyled">
                     <li class="pull-right hidden-xs"><a href="#top">To top <i class="fa fa-chevron-circle-up" aria-hidden="true"></i></a></li>
                     <li class="{{ (Request::is('/') ? 'active' : '') }}"><a href="{{ URL::to('/') }}" title="home">Home</a></li>
-                    <li class="{{ (Request::is('portfolio*') ? 'active' : '') }}"><a href="{{ URL::to('/portfolio') }}" title="portfolio of Carlos Castillo">Portfolio</a></li>
-                    <li class="{{ (Request::is('skills-competences*') ? 'active' : '') }}"><a href="/skills-competences" title="Skills & Competences of Carlos Castillo">Skills & Competences</a></li>
+                    <li class="{{ (Request::is('portfolio*') ? 'active' : '') }}"><a href="{{ URL::to('/portfolio') }}" title="Carlos Castillo's portfolio">Portfolio</a></li>
+                    <li class="{{ (Request::is('skills-competences*') ? 'active' : '') }}"><a href="/skills-competences" title="Carlos Castillo's skills & competences">Skills & Competences</a></li>
+                    <li class="{{ (Request::is('skills-competences*') ? 'active' : '') }}"><a href="/get-my-cv" title="Get Carlos Castillo CV">Get my CV</a></li>
                     <li class="{{ (Request::is('contact*') ? 'active' : '') }}"><a href="{{ URL::to('/contact') }}" title="Contact to Carlos Castillo">Contact me</a></li>
                 </ul>
                 <p>Made by <a href="{{ URL::to('/') }}" title="{{ Config::get('settings.sitename') }}">Carlos Castillo</a>.</p>

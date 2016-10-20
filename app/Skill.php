@@ -15,6 +15,11 @@ class Skill extends Model
 
     public function user()
     {
-        return $this->belongsTo('Portfolio\User');
+        return $this->belongsTo('Portfolio\User', 'users_id');
+    }
+
+    public function projects()
+    {
+        return $this->belongsToMany('Portfolio\Project');
     }
 }

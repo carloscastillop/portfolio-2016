@@ -14,36 +14,29 @@
 
 <!-- List of jobs -->
 <div class="container">
-    <h3>Masonry CSS with Bootstrap Panels</h3>
-    <p class="">
-        Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.
-    </p>
+    <div class="bottom40">
+        <h3>Last and relevant developed web projects</h3>
+        <p class="">
+            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.
+        </p>
+    </div>
 
     <div class="row rowMasonry portfolioList">
-        <?php 
-        $test = array(
-                        "400x600.png",
-                        "500x300.png",
-                        "640x480.png",
-                        "800x600.png"
-                        );
-        ?>
-        @for( $i=0; $i < 20 ; $i++)
+        @foreach($projects as $project)
             <div class="">
-                <div id="portfolio-{{ $i }}" class="panel panelMasonry panel-default eachPortfolio">
+                <div id="portfolio-{{ $project->id }}" class="panel panelMasonry panel-default eachPortfolio">
                     <div class="panel-image">
-                        <img src="{{ URL::to('images/'.$test[rand(0, 3)]) }}" class="img-responsive" />
+                        <img src="{{ URL::to('images/portfolio/'.$project->image) }}" class="img-responsive" alt="{{ $project->name }}" />
                     </div>
                     <div class="panel-heading">
-                        <h2><a href="#" title="Name of the project">Name of the project {{ $i }}</a></h2>
+                        <h2><a href="{{ URL::to('/portfolio/'.str_slug($project->name, '-').'/'.$project->id)}}" title="{{ $project->name }}">[{{ $project->order }}] {{ $project->name }}</a></h2>
                     </div>
-                    <div class="panel-body">Content here.. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
-                    Quisque mauris augue, gravida a libero. </div>
+                    <div class="panel-body">{{ $project->description }}</div>
                     <div class="panel-footer">
                     </div>
                 </div>
             </div>
-        @endfor
+        @endforeach
     </div>
 
     <div class="clearfix"></div>

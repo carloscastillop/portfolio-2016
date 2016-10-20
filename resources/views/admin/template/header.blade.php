@@ -46,6 +46,9 @@
                         <a href="{{ URL::to('/backend') }}"><i class="fa fa-dashboard fa-fw"></i> Inicio</a>
                     </li>
                     <li>
+                        <a href="{{ URL::to('/backend/projects') }}"><i class="fa fa-coffee"></i> Projects</a>
+                    </li>
+                    <li>
                         <a href="{{ URL::to('/backend/skills') }}"><i class="fa fa-trophy"></i> Skills</a>
                     </li>
                     <?php /* 

@@ -14,10 +14,13 @@
 
 <!-- List of jobs -->
 <div class="container">
-    <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h3>
-    <p class="">
-        Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.
-    </p>
+    <div class="bottom40 text-center">
+        <button type="button" class="btn btn-default btn-circle btn-xl text-block"><i class="fa fa-file-pdf-o fa-2x" aria-hidden="true"></i></button>
+        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h3>
+        <p class="">
+            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.
+        </p>
+    </div>
 
     <div class="row top40">
         <div class="col-lg-6 col-lg-offset-3">
@@ -57,7 +60,7 @@
                         {!! Form::text('name', null, 
                             array('', 
                                   'class'=>'form-control input-lg', 
-                                  'placeholder'=>'Elon Musk')) !!}
+                                  'placeholder'=>'e.g. Elon Musk')) !!}
                     </div>
 
                     <div class="form-group">
@@ -65,7 +68,7 @@
                         {!! Form::text('email', null, 
                             array('', 
                                   'class'=>'form-control input-lg', 
-                                  'placeholder'=>'nickname@domain.com')) !!}
+                                  'placeholder'=>'e.g. nickname@domain.com')) !!}
                     </div>
 
                     <div class="form-group">
@@ -73,7 +76,7 @@
                         {!! Form::text('company', null, 
                             array('', 
                                   'class'=>'form-control input-lg', 
-                                  'placeholder'=>'Space X')) !!}
+                                  'placeholder'=>'e.g. Space X')) !!}
                     </div>
 
                     <hr>

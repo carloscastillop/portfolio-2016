@@ -17,7 +17,9 @@ Route::get('/', function () {
 });
 
 Route::get('/portfolio', function () {
-    return view('portfolio');
+	$projects = \Portfolio\Project::where('active',1)->orderBy('order', 'asc')->get();
+
+    return view('portfolio')->with('projects', $projects);
 });
 
 /// detalle portfolio
@@ -32,11 +34,6 @@ Route::get('/skills-competences', function () {
     		->with('skills', $skills) 
     		->with('others', $others);
 });
-
-Route::get('/contact', function () {
-    return view('contact');
-});
-
 
 Route::get('/login', function () {
     return \Redirect::to('backend'); 
@@ -57,6 +54,14 @@ Route::get('cv-request/yes/{codigo}', array('codigo' => 'codigo', 'uses' => 'Cvr
 Route::get('cv-request/no/{codigo}', array('codigo' => 'codigo', 'uses' => 'CvrequestController@noCvRequest'));
 
 
+/*=======================*/
+/* ===== CONTACT    ==== */
+/*=======================*/
+
+Route::get('/contact', function () {
+	$subjects = \Portfolio\SubjectContact::where('active',1)->orderBy('order', 'asc')->get();
+    return view('contact')->with('subjects', $subjects);
+});
 
 /*=======================*/
 /*=======================*/
@@ -80,6 +85,11 @@ $router->group(['middleware' => 'auth'], function($router) {
 	    Route::resource('skills'	   ,'SkillController');
 	    Route::post('skills/image'     ,'SkillController@uploadImage');
 	    Route::post('skills/imagecrop'   ,'SkillController@uploadImageCrop');
+
+	    //Projects
+	    Route::resource('projects'	   		,'ProjectController');
+	    Route::post('projects/image'     	,'ProjectController@uploadImage');
+	    Route::post('projects/imagecrop'   	,'ProjectController@uploadImageCrop');
 
 	});
 });

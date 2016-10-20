@@ -796,6 +796,9 @@ $(document).ready(function() {
         var laImg = $('.croppedImg').attr('src');
         alertify.log('laImg: '+laImg);
     }
+    
+    ///SKILLS images
+
     if($('.skillsForm').length || $('.skillsFormEdit').length){
         $("select[name='category']").on('change', function() {
             skillImage();
@@ -831,6 +834,36 @@ $(document).ready(function() {
         $('#showImageSkill').hide();
         $('#showImageSkillNew').fadeIn();
     });
+
+
+    ////PROJECT IMAGES
+    if($('.projectsForm').length || $('.projectsFormEdit').length){
+        var eyeCandy = $('#yourId');
+        var croppedOptions = {
+            modal:true,
+            uploadUrl: '/backend/projects/image',
+            cropUrl: '/backend/projects/imagecrop',
+            outputUrlId:'myPhoto',
+            loaderHtml:'<div class="loader bubblingG"><span id="bubblingG_1"></span><span id="bubblingG_2"></span><span id="bubblingG_3"></span></div> ',
+            onAfterImgUpload:   function(){ getNameImageUploaded(); },
+            onError:        function(errormsg){ alertify.error('onError:'+errormsg)},
+            uploadData:{
+                "_token": $("input[name='_token']").val(),
+            },
+            cropData:{
+                'width' : eyeCandy.width(),
+                'height': eyeCandy.height(),
+                "_token": $("input[name='_token']").val(),
+            }
+        };
+        var cropperBox = new Croppic('yourId', croppedOptions);
+
+        
+        $("#resetUpload").click(function(){
+            cropperBox.reset(); 
+        });
+        
+    }
     
 });
 

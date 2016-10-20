@@ -40,7 +40,7 @@
         <?php $i=0 ?>
         @foreach($others as $other)
             <?php $i++ ?>
-            <div class="col-xs-6 col-sm-3 col-md-6">
+            <div class="col-xs-6 col-sm-3 col-md-4">
                 <div class="otherSkill">
                     <a class="fancybox" href="{{ URL::to('images/skills/'.$other->image) }}" rel="gallery_group-{{$i}}" title="{{$other->description}}-1">
                         <img rel="gallery_group-{{$i}}" src="{{ URL::to('images/skills/'.$other->image) }}" class="img-responsive" alt="{{$i}}-1">

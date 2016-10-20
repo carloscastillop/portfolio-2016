@@ -378,6 +378,17 @@ footer {
   @media screen and (max-width: 800px) {
     .eachSkill .thumbnail {
       height: auto; } }
+.eachSkill .thumbnail.home {
+  height: 100px; }
+  @media screen and (max-width: 1200px) {
+    .eachSkill .thumbnail.home {
+      height: 80px; } }
+  @media screen and (max-width: 1024px) {
+    .eachSkill .thumbnail.home {
+      height: 160px; } }
+  @media screen and (max-width: 800px) {
+    .eachSkill .thumbnail.home {
+      height: auto; } }
 
 #recaptchaContainer {
   display: none; }
@@ -433,25 +444,40 @@ footer {
   margin: 10px 0 10px 0; }
 
 .portfolioList .eachPortfolio {
-  margin-bottom: 20px; }
+  margin-bottom: 50px; }
 .portfolioList .eachPortfolio.eachPortfolioHover {
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 5px 2px;
   transition: 0.5s; }
 .portfolioList .eachPortfolio.eachPortfolioHover .panel-image img {
-  -webkit-transform: scale(1.3);
-  transform: scale(1.3); }
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  filter: grayscale(0%);
+  -webkit-filter: grayscale(0%);
+  -moz-filter: grayscale(0%);
+  -ms-filter: grayscale(0%);
+  -o-filter: grayscale(0%);
+  filter: none;
+  -webkit-filter: grayscale(0); }
 .portfolioList .panel {
   border-top-right-radius: 0;
   border-top-left-radius: 0;
-  margin-bottom: 30px; }
+  margin-bottom: 50px; }
   .portfolioList .panel .panel-image {
     overflow: hidden; }
   .portfolioList .panel .panel-image img {
     border-top-right-radius: 3px;
     border-top-left-radius: 3px;
     -webkit-transition: transform 0.2s ease-out;
-    transition: transform 0.2s ease-out; }
+    transition: transform 0.2s ease-out;
+    filter: grayscale(90%);
+    -webkit-filter: grayscale(90%);
+    -moz-filter: grayscale(90%);
+    -ms-filter: grayscale(90%);
+    -o-filter: grayscale(90%);
+    filter: url(resources.svg#desaturate);
+    filter: gray;
+    -webkit-filter: grayscale(0.9); }
   .portfolioList .panel .panel-body {
     padding: 10px; }
     .portfolioList .panel .panel-body .caption {
@@ -480,7 +506,7 @@ footer {
     background-color: transparent; }
     .portfolioList .panel .panel-heading h2 {
       margin: 0;
-      line-height: 0;
+      line-height: 0.4;
       font-weight: bold; }
       .portfolioList .panel .panel-heading h2 a {
         font-size: 14px;
@@ -657,5 +683,30 @@ body.modal-open #wrap {
 
 .btnStar {
   display: none; }
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.42857;
+  border-radius: 15px; }
+
+.btn-circle.btn-lg {
+  width: 50px;
+  height: 50px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px; }
+
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 35px; }
 
 /*# sourceMappingURL=style.css.map */
