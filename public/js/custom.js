@@ -100,16 +100,40 @@
 
     $('.eachPortfolio').click(function(){
         id = $(this).attr("id");
-        id = id.split('-')[1]
-        console.log(id);
+        id = id.split('-')[1];
+
+        var title, client, desc, img, skills, theSkills = '';
+        title   = $('#title-'+id).html();
+        client  = $('#client-'+id).val();
+        desc    = $('#description-'+id).html();
+        img     = $('#minPpal-'+id).attr('src');
+        skills  = $('#skills-'+id).val();
+        $('#modal-title').html(title);
+        $('#modal-mini-title span').html(title);
+        $('#modal-client span').html(client);
+        $('#modal-description').html(desc);
+        $('#modal-description').html(desc);
+        $('#modal-imgPpal').attr('src', img);
+        $('#modal-imgPpal').attr('alt', title);
+
+        if(theSkills.length){
+          theSkills = skills.split(",");
+          theSkills.forEach(function(entry) {
+              //console.log('#modalEachSkill-'+entry);
+              $('#modalEachSkill-'+entry).show();
+          });
+        }
+
+        //$(".container > div[id]").each(function(){
+
         $('#myModal').modal({
           backdrop: false
         });
-        $('.single-item').slick();
+        //$('.single-item').slick();
     });
 
     $('#myModal').on('hidden.bs.modal', function (e) {
-        $('.single-item').slick('unslick');
+        //$('.single-item').slick('unslick');
     });
 
     $('[data-toggle="tooltip"]').tooltip()
@@ -125,6 +149,11 @@
           $('.modal-menu-mobile').attr('style','display:block');
         }
     });
+
+    ///COTNACT
+    if($(".ContactForm").length){
+      
+    }
 
 })();
 $( document ).ready(function() {

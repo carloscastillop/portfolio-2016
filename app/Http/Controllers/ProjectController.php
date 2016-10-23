@@ -28,9 +28,11 @@ class ProjectController extends Controller
         $projects     = \Portfolio\Project::where('active', $active)
                     ->orderBy('order', 'asc')->get();
 
+        
+
         return view('admin.projects.index')
-            ->with('projects'     , $projects)
-            ->with('menuTipo'   , $menuTipo); 
+            ->with('projects'       , $projects)
+            ->with('menuTipo'       , $menuTipo); 
     }
 
     public function create()
@@ -53,6 +55,9 @@ class ProjectController extends Controller
         $finished = false;
         if($request->get('finished') == "on") $finished = true;
 
+        $home = false;
+        if($request->get('home') == "on") $home = true;
+
         $available = false;
         if($request->get('available') == "on") $available = true;
 
@@ -68,6 +73,7 @@ class ProjectController extends Controller
         $project->description = $request->get('description');
         $project->image       = $image;
         $project->link        = $link;
+        $project->home        = $home;
         $project->finished    = $finished;
         $project->link_available   = $available;
         $project->order       = $request->get('order');
@@ -138,6 +144,9 @@ class ProjectController extends Controller
         $link = '';
         if($request->get('link')!= null) $link = $request->get('link');
 
+        $home = false;
+        if($request->get('home') == "on") $home = true;
+
         $available = false;
         if($request->get('available') == "on") $available = true;
 
@@ -154,6 +163,7 @@ class ProjectController extends Controller
         $project->image       = $image;
         $project->link        = $link;
         $project->finished    = $finished;
+        $project->home        = $home;
         $project->link_available   = $available;
         $project->order       = $request->get('order');
         $project->users_id    = Auth::user()->id;

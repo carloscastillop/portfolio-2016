@@ -69,6 +69,7 @@
                                 <th>Description</th>
                                 <th>Order</th>
                                 <th>Active</th>
+                                <th>Home</th>
                                 <th>Projects</th>
                                 <th>Options</th>
                             </tr>
@@ -78,10 +79,16 @@
                             <tr>
                                 <td>{{ $value->id }}</td>
                                 <td>{{ $value->created_at }}</td>
-                                <td>{{ $value->name }}</td>
-                                <td><small>{{ str_limit($value->description, $limit = 50, $end = '...') }}</small></td>
+                                <td>{{ str_limit($value->name, $limit = 20, $end = '...') }}</td>
+                                <td><small>{{ str_limit($value->description, $limit = 40, $end = '...') }}</small></td>
                                 <td>{{ $value->order }}</td>
                                 <td>@if($value->active==1)
+                                        <i aria-hidden="true" class="fa fa-check-square-o"></i> 
+                                @else
+                                    <i aria-hidden="true" class="fa fa-minus-square-o" title="Lista inactiva" style="color:#999999"></i>
+                                @endif
+                                </td>
+                                <td>@if($value->home==1)
                                         <i aria-hidden="true" class="fa fa-check-square-o"></i> 
                                 @else
                                     <i aria-hidden="true" class="fa fa-minus-square-o" title="Lista inactiva" style="color:#999999"></i>

@@ -20,6 +20,11 @@ class Skill extends Model
 
     public function projects()
     {
-        return $this->belongsToMany('Portfolio\Project');
+        return $this->belongsToMany('Portfolio\Project', 'projects_has_skills', 'skills_id', 'projects_id');
+    }
+
+    public function gallery()
+    {
+        return $this->hasMany('Portfolio\SkillGallery', 'skills_id'); //, 'skill_categories_id'
     }
 }

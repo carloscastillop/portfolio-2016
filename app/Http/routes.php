@@ -11,21 +11,56 @@
 |
 */
 
+///HOME
 Route::get('/', function () {
+    $user  	= \Portfolio\User::find(1);
     $skills = \Portfolio\Skill::where('active',1)->where('skill_categories_id',1)->orderBy('order', 'asc')->take(12)->get();
-    return view('home')->with('skills', $skills); 
+    $leProject = \Portfolio\Project::where('active',1)->where('home',1)->orderBy('order', 'asc')->take(2)->inRandomOrder()->get();
+    return view('home')->with('skills', $skills)->with('leProject', $leProject)->with('user', $user); 
 });
 
 Route::get('/portfolio', function () {
 	$projects = \Portfolio\Project::where('active',1)->orderBy('order', 'asc')->get();
+	$skills   = \Portfolio\Skill::where('active', 1)->where('skill_categories_id',1)->orderBy('order', 'asc')->get();
 
-    return view('portfolio')->with('projects', $projects);
+    return view('portfolio')->with('projects', $projects)->with('skills', $skills);
 });
 
 /// detalle portfolio
 Route::get('/portfolio/{slug}/{id}', function ($slug, $id) {
-    return view('portfolio-detail');
+	$query          = array('id' => $id);
+    $rules = array(
+        'id'    => 'required|numeric|exists:projects,id,active,1'
+        );
+    $validator = Validator::make($query, $rules);
+    if ($validator->fails()) {
+    	return \Redirect::to('/portfolio');
+    }
+    $project = \Portfolio\Project::find($id);
+    return view('portfolio-detail')->with('project', $project);
 })->where('id', '[0-9]+');
+
+/// Filtrar portfolio por skill 
+Route::get('/portfolio/skill/{slug}/{id}', function ($slug, $id) {
+	$query          = array('id' => $id);
+    $rules = array(
+        'id'    => 'required|numeric|exists:skills,id,active,1'
+        );
+    $validator = Validator::make($query, $rules);
+    if ($validator->fails()) {
+    	return \Redirect::to('/portfolio');
+    }
+
+    $projects = \Portfolio\Project::with('skills')->whereHas('skills', function($q) use ($id){
+		$q->where('skills.id', '=', $id);
+	})->get();
+	$skills   = \Portfolio\Skill::where('active', 1)->where('skill_categories_id',1)->orderBy('order', 'asc')->get();
+
+	$theSkill = \Portfolio\Skill::find($id);
+
+    return view('portfolio')->with('projects', $projects)->with('skills', $skills)->with('theSkill', $theSkill);
+})->where('id', '[0-9]+');
+
 
 Route::get('/skills-competences', function () {
 	$skills = \Portfolio\Skill::where('active',1)->orderBy('order', 'asc')->where('skill_categories_id',1)->get();
@@ -58,10 +93,9 @@ Route::get('cv-request/no/{codigo}', array('codigo' => 'codigo', 'uses' => 'Cvre
 /* ===== CONTACT    ==== */
 /*=======================*/
 
-Route::get('/contact', function () {
-	$subjects = \Portfolio\SubjectContact::where('active',1)->orderBy('order', 'asc')->get();
-    return view('contact')->with('subjects', $subjects);
-});
+Route::get('contact'	,['as' => 'contact', 'uses' => 'ContactController@create']);
+Route::post('contact'	,['as' => 'contact-store', 'uses' => 'ContactController@store']);
+
 
 /*=======================*/
 /*=======================*/

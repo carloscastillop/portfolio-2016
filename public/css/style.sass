@@ -579,6 +579,15 @@ body.loading
         -moz-column-width: 25em
         -webkit-column-width: 25em
 
+.rowMasonryHome
+    -moz-column-width: 30em
+    -webkit-column-width: 30em
+    -moz-column-gap: .3em
+    -webkit-column-gap: .3em
+    @media screen and (max-width: 1200px)
+        -moz-column-width: 25em
+        -webkit-column-width: 25em
+
 .panelMasonry 
     display: inline-block
     margin: .5em
@@ -728,4 +737,54 @@ body.modal-open #wrap
     font-size: 24px
     line-height: 1.33
     border-radius: 35px
+.footerSkills
+    .SkillsList
+        .thumbnail
+            height: 70px
+            @media screen and (max-width: 1200px)
+                height: 50px
+            @media screen and (max-width: 990px)
+                height: 160px
+            @media screen and (max-width: 790px)
+                height: auto
+.modalContainer
+    .SkillsList
+        .thumbnail
+            height: 50px
+.projectDetail
+    .thumbnail
+        height: 50px
+    h3
+        margin-top: 0px
+        a
+            color: $colorCuarto
+            &:hover
+                text-decoration: none
+    h4
+        margin-top: 0px
+
+.filterSkills
+    .SkillsList
+        .thumbnail
+            height: 70px
+            @media screen and (max-width: 1200px)
+                height: 50px
+            @media screen and (max-width: 990px)
+                height: 90px
+            @media screen and (max-width: 790px)
+                height: auto
+.panelHomeProject
+    .figure
+        img.img-responsive.thumbnail
+            clip: rect(0px,60px,200px,0px)
+    .panel-heading
+        padding: 10px
+        background-color: transparent
+        h2 
+            margin: 0
+            line-height: 0.4
+            font-weight: bold
+            a
+                font-size: 14px
+                color: $colorCuarto
 

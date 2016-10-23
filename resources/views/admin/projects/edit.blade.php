@@ -74,6 +74,13 @@
 									</div>
 								</div>
 								<div class="form-group">
+									<div class="checkbox">
+										<label>
+											<input name="home" type="checkbox" @if($project->home == true) checked="checked"@endif> Home
+										</label>
+									</div>
+								</div>
+								<div class="form-group">
 			                        {!! Form::label('Project name*') !!}
 			                        {!! Form::text('name', $project->name, 
 			                            array('', 

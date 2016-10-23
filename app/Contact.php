@@ -8,7 +8,7 @@ class Contact extends Model
 {
     protected $table = 'contacts';
 
-    public function category()
+    public function subject()
     {
         return $this->belongsTo('Portfolio\SubjectContact', 'subjects_id');
     }

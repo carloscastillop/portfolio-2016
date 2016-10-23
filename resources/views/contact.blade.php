@@ -44,7 +44,7 @@
             @endif
             @if(Session::has('message'))
             <div class="alert alert-success" role="alert">
-                <a href="{{ URL::to('get-my-cv') }}" class="close" aria-label="Resfreh"><span aria-hidden="true">&times;</span></a>
+                <a href="{{ URL::to('contact') }}" class="close" aria-label="Resfreh"><span aria-hidden="true">&times;</span></a>
                 <i class="fa fa-smile-o fa-3x " aria-hidden="true"></i> <strong>Great!!</strong>
                 <br><br>
                 {{Session::get('message')}}
@@ -55,12 +55,12 @@
             </div>
             @else
             <div class="well">
-                {!! Form::open(array('route' => 'get-my-cv-store', 'class' => 'form')) !!}
+                {!! Form::open(array('route' => 'contact-store', 'class' => 'form ContactForm')) !!}
                     <div class="form-group">
                         {!! Form::label('Subject *') !!}
-                        <select class="form-control input-lg">
+                        <select class="form-control input-lg" name="subject">
                             @foreach($subjects as $subject)
-                            <option value="{{ $subject->id }}">{{ $subject->name }}</option>
+                            <option value="{{ $subject->id }}" @if($op==$subject->id) selected="selected" @endif>{{ $subject->name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -92,7 +92,7 @@
                         <label class="sr-only" for="smsInput">Code area</label>
                         <div class="input-group">
                             <div class="input-group-addon">+44</div>
-                            <input id="smsInput" type="text" class="form-control input-lg" maxlength="12" placeholder="07774 041604">
+                            <input name="phone" type="text" class="form-control input-lg" maxlength="12" placeholder="07774 041604">
                         </div>
                     </div>
 

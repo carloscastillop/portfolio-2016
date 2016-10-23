@@ -26,6 +26,26 @@ class SendMailController extends Controller
 
     }
 
+    public static function sendMailAdminContact($cv){
+
+        \Mail::send('emails.contact',
+            array(
+                'name'      => $cv->name,
+                'email'     => $cv->email,
+                'company'   => $cv->company,
+                'subject'   => $cv->subject->name,
+                'mobile'    => $cv->mobile,
+                'bodyMessage'    => $cv->message,
+                'ip'        => $cv->IP
+            ), function($message) use ($cv)
+        {
+            $message->to('portfolio@fionaycarlos.cl', 'Carlos Castillo')
+                ->subject('New Contact from '.$cv->name);
+        });
+        return true;
+
+    }
+
 
     public static function sendMailuserCvRequestYes($cvRequest, $user){
     	

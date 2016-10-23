@@ -9,37 +9,25 @@
             <div class="panel panelTopCCP">
                 <div class="cover-photo">
                     <div class="fb-name">
-                        <h2><a href="{{ URL::to('/') }}" title="Carlos Castillo web developer">Carlos Castillo</a></h2>
-                        <h1><a href="{{ URL::to('/') }}" title="Carlos Castillo web developer">Web developer</a></h1>
+                        <h2><a href="#">Carlos Castillo</a></h2>
+                        <h1><a href="#">Web developer</a></h1>
                     </div>
                 </div>
                 <div class="panel-body">
                     <div class="profile-thumb">
-                        <img id="imagen2Profile" src="{{ URL::to('/images/yo.png') }}" alt="Carlos Castillo web developer">
-                        <img id="imagen1Profile" src="{{ URL::to('/images/yo2.png') }}" alt="Carlos Castillo web developer hover">
+                        <img id="imagen2Profile" src="{{ URL::to('/images/yo2.png') }}" alt="">
+                        <img id="imagen1Profile" src="{{ URL::to('/images/yo.png') }}" alt="">
                     </div>
                     
                     <div class="socialInfoContainer">
-                        <a href="mailto:info@carloscastillo.cl" class="fb-user-mail" title="Mail me">{{ $user->email }}</a>
+                        <a href="#" class="fb-user-mail">info@carloscastillo.cl</a>
                         <ul class="social-icons">
-                            @if($user->linkedin)
-                            <li><a href="{{ $user->linkedin }}" target="_blank" title="My Linkedin"><i class="fa fa-linkedin"></i></a></li>
-                            @endif
-                            @if($user->facebook)
-                            <li><a href="{{ $user->facebook }}" target="_blank" title="My Facebook"><i class="fa fa-facebook"></i></a></li>
-                            @endif
-                            @if($user->twitter)
-                            <li><a href="{{ $user->twitter }}" target="_blank" title="Follow me on Twitter"><i class="fa fa-twitter"></i></a></li>
-                            @endif
-                            @if($user->git)
-                            <li><a href="{{ $user->git }}" target="_blank" title="My GitLab"><i class="fa fa-git"></i></a></li>
-                            @endif
-                            @if($user->google)
-                            <li><a href="{{ $user->google }}" target="_blank" title="My Google Plus"><i class="fa fa-google-plus"></i></a></li>
-                            @endif
-                            @if($user->skype)
-                            <li><a href="skype:{{ $user->skype }}?call" target="_blank" title="Call me by Skype"><i class="fa fa-skype"></i></a></li>
-                            @endif
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-git"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-skype"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -52,33 +40,32 @@
         <div class="col-md-8">
             <!-- last job -->
             <div class="panel panel-default panelHomeProject">
-                <div class="panel-heading"><h3>My last projects</h3></div>
+                <div class="panel-heading"><h3>My last project</h3></div>
                 <div class="panel-body">
-                    <div class="rowMasonryHome portfolioList">
-                        @foreach($leProject as $project)
-                        <a id="title-{{ $project->id }}" href="{{ URL::to('/portfolio/'.str_slug($project->name, '-').'/'.$project->id)}}" title="{{ $project->name }}">
-                        <div id="portfolio-{{ $project->id }}" class="panel panelMasonry panel-default eachPortfolio">
-                            <div class="panel-image">
-                                <img id="minPpal-{{ $project->id }}" src="{{ URL::to('images/portfolio/'.$project->image) }}" class="img-responsive" alt="{{ $project->name }}" />
+                    <div class="wp-block inverse no-margin">
+                        <div class="figure">
+                            <img src="{{ URL::to('images/portfolio/'.$leProject->image) }}" class="img-responsive thumbnail" />
+                            <div class="wp-block-info-over left">
+                                <h2>
+                                    <span class="pull-left">
+                                        <a href="#">{{ $leProject->name }}</a>
+                                        <span class="label label-primary">
+                                            <?php $leSkills = ''; $count=0;?>
+                                            @foreach($leProject->skills as $lsk)
+                                                @if($count < 5)
+                                                <?php $leSkills.= $lsk->name.', ';
+                                                $count ++; ?>
+                                                @endif
+                                            @endforeach
+                                            <?php $leSkills = substr($leSkills, 0, -2).' and more...';?>
+                                            {{ $leSkills }}
+                                        </span>
+                                    </span>
+                                </h2>
                             </div>
-                            <div class="panel-heading">
-                                <h2><a id="title-{{ $project->id }}" href="{{ URL::to('/portfolio/'.str_slug($project->name, '-').'/'.$project->id)}}" title="{{ $project->name }}">{{ $project->name }}</a></h2>
-                            </div>
-                            <div class="panel-body" id="description-{{ $project->id }}">
-                                <?php $leSkills = ''; $count=0;?>
-                                    @foreach($project->skills as $lsk)
-                                        @if($count < 5)
-                                        <?php $leSkills.= $lsk->name.', ';
-                                        $count ++; ?>
-                                        @endif
-                                    @endforeach
-                                    <?php $leSkills = substr($leSkills, 0, -2).' and more...';?>
-                                    {{ $leSkills }}
-                            </div>
-                        </div> 
-                        </a>                               
-                        @endforeach
+                        </div>
                     </div>
+                    <p class="text-help">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur hendrerit blandit nibh, id ultricies quam blandit feugiat. </p>
                 </div>
                 <div class="panel-footer clearfix">
                     <i class="fa fa-eye fa-2x pull-left btnEyeHide" aria-hidden="true"></i>
@@ -158,8 +145,10 @@
                                 <button type="submit" class="btn btn-primary btn-lg btn-block"><i class="fa fa-phone" aria-hidden="true"></i> Try a SMS</button>
                             </form>
                             <div class="itdPartner">
-                                <p>
-                                <a href="{{ URL::to('contact?op=5') }}">Do you need SMS services? <i class="fa fa-chevron-right" aria-hidden="true"></i></a>.</p>
+                                <img src="{{ URL::to('/images/logoItd.png') }}">
+                                <p>My partner in UK. <br />
+                                Do you need SMS bulk Services? <br />
+                                <a>Read more <i class="fa fa-chevron-right" aria-hidden="true"></i></a>.</p>
                             </div>
                         </div>
                     </div>

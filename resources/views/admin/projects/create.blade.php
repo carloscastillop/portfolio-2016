@@ -57,6 +57,13 @@
 
 							<fieldset>
 								<div class="form-group">
+									<div class="checkbox">
+										<label>
+											<input name="home" type="checkbox"> Home
+										</label>
+									</div>
+								</div>
+								<div class="form-group">
 			                        {!! Form::label('Project name*') !!}
 			                        {!! Form::text('name', null, 
 			                            array('', 
