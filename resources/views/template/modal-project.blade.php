@@ -30,10 +30,21 @@
                         <!-- Fin carousel -->
                     </div>
                     <div class="col-md-5">
-                        <h3 id="modal-mini-title">Name: <span>Project name 001</span></h3>
-                        <h4 id="modal-client">Client: <span>XXX YYY</span></h4>
+                        <small>Name:</small>
+                        <h3 id="modal-mini-title">Project name 001</h3>
+                        <small>Client:</small>
+                        <h4 id="modal-client">My client</h4>
                         <hr>
                         <p id="modal-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer convallis sagittis urna. Nulla convallis felis at felis ornare, ut fermentum justo euismod. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas et nulla eget tortor pulvinar vestibulum ac ut tortor.</p>
+                        <div class="text-center">
+                            <div class="hasLink" style="display: none">
+                                <a id="modal-link" href="" class="btn btn-lg btn-primary" title="visit" target="_blank">Visit project <i class="fa fa-external-link" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="noLink" style="display: none">
+                                <button type="button" class="btn btn-default btn-lg" disabled="disabled"><i class="fa fa-chain-broken" aria-hidden="true"></i> Sorry, link not available</button>
+                            </div>
+                            
+                        </div>
                         <hr>
                         <h5>Used technologies</h5>
                         <div class="row SkillsList SkillsListModal">

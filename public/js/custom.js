@@ -106,11 +106,11 @@
         $('#modal-imgPpal').attr('src', img);
         $('#modal-imgPpal').attr('alt', title);
 
-        if(theSkills.length){
+        if(skills.length > 0){
           theSkills = skills.split(",");
-          theSkills.forEach(function(entry) {
+          theSkills.forEach(function(entry){
               //console.log('#modalEachSkill-'+entry);
-              $('#modalEachSkill-'+entry).show();
+              $('.SkillsListModal #modalEachSkill-'+entry).show();
           });
         }
 
