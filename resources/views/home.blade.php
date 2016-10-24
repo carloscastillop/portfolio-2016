@@ -142,24 +142,28 @@
                         <div class="panel-heading"><h3>Send a SMS!!</h3></div>
                         <div class="panel-body">
                             <p>Consectetur adipiscing elit. Curabitur hendrerit blandit nibh, id ultricies quam blandit feugiat. </p>
-                            <form id="smsForm" class="form">
+                            {!! Form::open(array('url' => '/send-sms', 'class' => 'form smsForm', 'id' => 'smsForm')) !!}
                                 <div class="form-group">
                                     <label class="sr-only" for="smsInput">Code area</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">+44</div>
-                                        <input id="smsInput" type="text" class="form-control" maxlength="12" placeholder="07774 041604">
+                                        <input id="smsInput" name="dnis" type="text" class="form-control" maxlength="12" placeholder="7774 041604">
                                     </div>
                                 </div>
-                                <div id="recaptchaContainer">
-                                    <div class="g-recaptcha" data-theme="light" data-sitekey="jatbC6AXE6iSK4zWDPpkhgYOP" style="transform:scale(0.85);-webkit-transform:scale(0.85);transform-origin:0 0;-webkit-transform-origin:0 0;"></div>
+                                
+                                <div id="smsMessage" class="alert alert-danger" style="display: none">
+                                    <strong>Ups!</strong> <span></span>
+                                </div>
+                                <div id="smsMessageOk" class="alert alert-success" style="display: none">
+                                    <strong>Great!</strong> <span></span>
+                                    <a id="smsAgain" href="#"><i class="fa fa-chevron-left" aria-hidden="true"></i> Try again</a>
                                 </div>
 
-
-                                <button type="submit" class="btn btn-primary btn-lg btn-block"><i class="fa fa-phone" aria-hidden="true"></i> Try a SMS</button>
+                                <button type="button" id="smsButton" class="btn btn-primary btn-lg btn-block btnStar btnClick"><i class="fa fa-phone" aria-hidden="true"></i> Try a SMS</button>
                             </form>
                             <div class="itdPartner">
                                 <p>
-                                <a href="{{ URL::to('contact?op=5') }}">Do you need SMS services? <i class="fa fa-chevron-right" aria-hidden="true"></i></a>.</p>
+                                <a href="{{ URL::to('contact?op=5') }}">Do you need SMS API or SMS Bulk services? <i class="fa fa-chevron-right" aria-hidden="true"></i></a>.</p>
                             </div>
                         </div>
                     </div>

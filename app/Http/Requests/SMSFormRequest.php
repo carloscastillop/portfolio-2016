@@ -4,7 +4,7 @@ namespace Portfolio\Http\Requests;
 
 use Portfolio\Http\Requests\Request;
 
-class CvFormRequest extends Request
+class SMSFormRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,7 @@ class CvFormRequest extends Request
     public function rules()
     {
         return [
-            'name'      => 'required|min:1|max:255',
-            'email'     => 'required|email|max:255',
-            'dnis'      => 'min:100000000|max:999999999999|numeric',
-            'company'   => 'required|min:1|max:255',
-            
+            'dnis'      => 'required|min:5|max:15'
         ];
     }
 }

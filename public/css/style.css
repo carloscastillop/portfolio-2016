@@ -60,6 +60,8 @@ p {
 .navbar-inverse #navbar-main ul.nav.navbar-nav li a:hover {
   background-color: #8C8C8B;
   color: #F2F2F2; }
+.navbar-inverse #navbar-main ul.nav.navbar-nav li a:hover ~ .navbar-inverse {
+  border-color: #8C8C8B; }
 .navbar-inverse #navbar-main ul.nav.navbar-nav li.active a {
   background-color: #F2F2F2; }
   .navbar-inverse #navbar-main ul.nav.navbar-nav li.active a:hover {
@@ -769,5 +771,9 @@ body.modal-open #wrap {
     .panelHomeProject .panel-heading h2 a {
       font-size: 14px;
       color: #403F3C; }
+
+.alert a {
+  color: #fff;
+  font-weight: bold; }
 
 /*# sourceMappingURL=style.css.map */

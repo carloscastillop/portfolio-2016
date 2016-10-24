@@ -96,6 +96,14 @@ Route::get('cv-request/no/{codigo}', array('codigo' => 'codigo', 'uses' => 'Cvre
 Route::get('contact'	,['as' => 'contact', 'uses' => 'ContactController@create']);
 Route::post('contact'	,['as' => 'contact-store', 'uses' => 'ContactController@store']);
 
+/*=======================*/
+/* ======== SMS  ======= */
+/*=======================*/
+
+Route::post('send-sms'	,'SMSController@create');
+
+
+
 
 /*=======================*/
 /*=======================*/

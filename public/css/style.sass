@@ -69,6 +69,8 @@ p
             li a:hover
                 background-color: $colorQuinto
                 color: $colorSegundo
+            li a:hover ~ .navbar-inverse 
+                border-color: $colorQuinto
             li.active a
                 background-color: $colorSegundo
                 &:hover
@@ -787,4 +789,8 @@ body.modal-open #wrap
             a
                 font-size: 14px
                 color: $colorCuarto
-
+.alert
+    span
+    a
+        color: #fff
+        font-weight: bold

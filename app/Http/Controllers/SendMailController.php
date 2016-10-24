@@ -14,6 +14,7 @@ class SendMailController extends Controller
 		    array(
 		        'name'    => $cv->name,
 		        'email'   => $cv->email,
+                'mobile'  => '44 '.$cv->mobile,
                 'company' => $cv->company,
                 'ip'      => $cv->IP,
                 'code'    => $cv->code      
@@ -62,7 +63,7 @@ class SendMailController extends Controller
             ), function($message) use ($cvRequest, $user)
 		{
 		    $message->to($cvRequest->email, $cvRequest->name)
-		    	->subject('CV request from '.$user->name.' - '.$user->profession);
+		    	->subject('CV requested from '.$user->name.' - '.$user->profession);
 		});
 		return true;
 

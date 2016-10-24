@@ -33,6 +33,10 @@ $setting_data['uploadImagesProducts']  ="/uploads/products/";
 ////USER
 $setting_data['uploadCV']  		="/uploads/cv/"; //Config::get('settings.uploadCV')
 
+////SMS
+$setting_data['smsUser']  		= "carloscastillo"; //Config::get('settings.smsUser')
+$setting_data['smsPassword']  	= "carloscastillopardo"; //Config::get('settings.smsPassword')
+
 /////CHAT
 //$setting_data['elChat'] = Chat::find(1); //Config::get('settings.elChat')
 

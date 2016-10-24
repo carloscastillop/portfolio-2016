@@ -80,17 +80,7 @@
         $(this).parent().removeClass('btnEyeOver');
     });
 
-    $("#smsInput").val("");
-    $("#smsInput").keyup(function() {
-
-        console.log($("#smsInput").val().length);
-        if($("#smsInput").val().length > 0) {
-            // Enable submit button
-            $('#recaptchaContainer').fadeIn();
-        } else {
-            $('#recaptchaContainer').fadeOut();
-        }
-    });
+    
 
     $('.eachPortfolio').mouseenter(function(){
         $(this).addClass('eachPortfolioHover');
@@ -153,6 +143,100 @@
     ///COTNACT
     if($(".ContactForm").length){
       
+    }
+
+    if($("#smsForm").length){
+
+      $('#smsButton').attr('disabled', false);
+      $("#smsInput").val("");
+      $("#smsInput").keyup(function() {
+          $('#smsInput').parent().removeClass('has-error');
+          $('#smsMessage span').html('');
+          $('#smsMessageOk span').html('');
+          $('#smsMessage').fadeOut();
+          $('#smsMessageOk').fadeOut();
+          //console.log($("#smsInput").val().length);
+          if($("#smsInput").val().length > 0) {
+            $('#smsButton').attr('disabled', false);
+              // Enable submit button
+          } else {
+          }
+      });
+      $('#smsAgain').click(function(e){
+        e.preventDefault();
+        $('#smsButton').attr('disabled', false);
+        $('#smsButton').fadeIn();
+        $("#smsInput").val("");
+        $('#smsMessage').hide();
+        $('#smsMessageOk').fadeOut();
+      });
+      $('#smsButton').click(function(){
+          var smsInput  = $('#smsInput').val();
+          var url       = '/send-sms';
+          var leToken   = $('input[name=_token]').val();
+          var msgText   = '';
+          var type      = 'ok';
+          $.ajax({
+                url: url,                         
+                data : {                                
+                    'dnis'      : smsInput,
+                    '_token'    : leToken
+                },
+                type: 'POST',
+                dataType: 'json',                                                
+                beforeSend: function(xhr){
+                  xhr.overrideMimeType( "text/plain; charset=x-user-defined" );
+                },
+                success: function(response){ 
+                  if(response.leResponse=='ok'){
+                    msgText = 'Your example message will be delivered soon. Thank you! <br><br>';
+                    $('#smsButton').hide();
+                  }
+                  if(response.leResponse=='997' || response.leResponse=='762' || response.leResponse=='926'){
+                    $('#smsInput').parent().addClass('has-error');
+                    msgText = 'An error has occurred with the SMS server try again later (cod:'+response.leResponse+')';
+                  }
+                  if(response.leResponse=='231'){
+                    $('#smsInput').parent().addClass('has-error');
+                    msgText = 'Incorrect number';
+                  }
+                  if(response.leResponse=='009'){
+                    $('#smsInput').parent().addClass('has-error');
+                    msgText = 'Your number is Blacklisted!';
+                  } 
+                  if(response.leResponse=='888'){
+                    $('#smsInput').parent().addClass('has-error');
+                    msgText = 'Calm down!! Too many traffic!!';
+                  } 
+
+                  if(type == 'ok'){
+                    $('#smsMessage').hide();
+                    $('#smsMessageOk span').html(msgText);
+                    $('#smsMessageOk').fadeIn();
+                  }else{
+                    $('#smsMessageOk').hide();
+                    $('#smsMessage span').html(msgText);
+                    $('#smsMessage').fadeIn();
+                  }                                     
+                },
+                error: function(response){
+                  $('#smsButton').attr('disabled', false);
+                  var errors = response.responseJSON;
+                  if(errors.dnis == "The dnis field is required."){
+                    $('#smsInput').parent().addClass('has-error');
+                    msgText = 'Please enter your number';
+                  }
+                  if(errors.dnis == "The dnis must be at least 5 characters." || errors.dnis == "The dnis may not be greater than 15 characters."){
+                    $('#smsInput').parent().addClass('has-error');
+                    msgText = 'Incorrect number';
+                  }
+                  $('#smsMessageOk').hide();
+                  $('#smsMessage span').html(msgText);
+                  $('#smsMessage').fadeIn();
+                  //console.log(errors);
+                }
+            });//ajax
+      });//function
     }
 
 })();

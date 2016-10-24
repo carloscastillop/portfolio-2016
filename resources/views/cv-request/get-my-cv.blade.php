@@ -72,6 +72,16 @@
                     </div>
 
                     <div class="form-group">
+                        {!! Form::label('Your Mobile') !!}
+                        <label class="sr-only" for="smsInput">Code area</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">+44</div>
+                            <input id="smsInput" name="dnis" type="text" class="form-control" maxlength="12" placeholder="7774 041604">
+                        </div>
+                        <p class="help-text"><i class="fa fa-comment-o" aria-hidden="true"></i> You will receive an SMS confirmation</p>
+                    </div>
+
+                    <div class="form-group">
                         {!! Form::label('Your company *') !!}
                         {!! Form::text('company', null, 
                             array('', 

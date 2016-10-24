@@ -40,7 +40,7 @@
                                     <tr>
                                         <td>{{ $value->id }}</td>
                                         <td>{{ $value->created_at }}</td>
-                                        <td><small>{{ $value->description }}</small></td>
+                                        <td><small>{!! $value->description !!}</small></td>
                                     </tr>
                                     @endforeach
                                 </tbody>

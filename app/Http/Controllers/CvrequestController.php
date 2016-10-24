@@ -30,6 +30,7 @@ class CvrequestController extends Controller
         $cv->email     = strtolower($request->get('email'));
         $cv->company   = ucwords(strtolower($request->get('company')));
         $cv->name      = ucwords(strtolower($request->get('name')));
+        $cv->mobile    = $request->get('dnis');
         $cv->users_id  = 1;
         $cv->IP        = $request->ip();
         $cv->code      = md5($cv->email."-".date('YmdHis')."-".rand(1000,9999));

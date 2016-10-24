@@ -60,7 +60,7 @@ class AdminController extends Controller
 	}
 
 	public function adminDashboard(){
-		$logs = \Portfolio\Log::take(100)->orderBy('id','desc')->get();
+		$logs = \Portfolio\Log::take(150)->orderBy('id','desc')->get();
 		return view('admin.dashboard')
 			->with('logs', $logs);	
 	}

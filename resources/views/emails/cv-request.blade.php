@@ -11,6 +11,7 @@
 	                        <h3 style="font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif; color: #000; line-height: 1.1; font-weight: 500; font-size: 20px; margin: 20px 10px; padding: 0;">
 	                        	<small>Name:</small> {{ $name }}<br>
 	                        	<small>Email:</small> {{ $email }}<br>
+	                        	<small>Mobile:</small> {{ $mobile }}<br>
 	                        	<small>Company:</small> {{ $company }}<br>
 	                        	<small>IP:</small> {{ $ip }}
 	                        </h3>
