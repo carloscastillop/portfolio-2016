@@ -1,5 +1,8 @@
 
 (function(){
+
+  
+
     $(window).scroll(function () {
           var top = $(document).scrollTop();
           $('.splash').css({
@@ -91,6 +94,7 @@
     $('.eachPortfolio').click(function(){
         id = $(this).attr("id");
         id = id.split('-')[1];
+        $(this).addClass("eachPortfolioHover");
 
         var title, client, desc, img, skills, theSkills = '';
         title   = $('#title-'+id).html();
@@ -99,12 +103,14 @@
         img     = $('#minPpal-'+id).attr('src');
         skills  = $('#skills-'+id).val();
         $('#modal-title').html(title);
-        $('#modal-mini-title span').html(title);
-        $('#modal-client span').html(client);
+        $('#modal-mini-title').html(title);
+        $('#modal-client').html(client);
         $('#modal-description').html(desc);
         $('#modal-description').html(desc);
         $('#modal-imgPpal').attr('src', img);
         $('#modal-imgPpal').attr('alt', title);
+        $('#modal-fancy').attr('href', img);
+        $('#modal-fancy').attr('title', title);
 
         if(skills.length > 0){
           theSkills = skills.split(",");
@@ -249,6 +255,11 @@ $( document ).ready(function() {
 
     $(".btnStar").fadeIn();
 
+    if($('.row.grid').length){    
+      var m = new Masonry($('.grid').get()[0], {
+          itemSelector: ".eachProject"
+      });
+    }
 });
 
 

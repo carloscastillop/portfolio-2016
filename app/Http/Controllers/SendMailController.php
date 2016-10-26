@@ -47,10 +47,13 @@ class SendMailController extends Controller
 
     }
 
-
+    //cuando elijo si enviar
     public static function sendMailuserCvRequestYes($cvRequest, $user){
     	
     	$ago =  \Carbon\Carbon::createFromTimeStamp(strtotime($cvRequest->created_at))->diffForHumans();
+
+        $portfolio = $user->projects()->orderBy('id', 'desc')->get();
+
 
     	\Mail::send('emails.cv-request-yes',
 		    array(
@@ -59,11 +62,13 @@ class SendMailController extends Controller
                 'userName'  => $user->name,
                 'userProfession' => $user->profession,
                 'userFile' 	=> \Config::get('settings.uploadCV').$user->cv,
+                'portfolio' => $portfolio,
                 'ago'	  	=> $ago     
             ), function($message) use ($cvRequest, $user)
 		{
 		    $message->to($cvRequest->email, $cvRequest->name)
-		    	->subject('CV requested from '.$user->name.' - '.$user->profession);
+                    ->bcc(\Config::get('settings.emailCopia'), \Config::get('settings.nombreCopia'))
+		    	 ->subject('CV requested from '.$user->name.' - '.$user->profession);
 		});
 		return true;
 

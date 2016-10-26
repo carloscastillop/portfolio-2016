@@ -4,8 +4,8 @@
 <!-- header -->
 <div class="page-header">
     <div class="container">
-        <h1>Contact <small class="pull-right top30 hidden-sm hidden-xs">with Carlos Castillo - web developer</small></h1>
-        <ol class="breadcrumb">
+        <h1><a href="{{ URL::to('contact') }}" title="Contact web developer">Contact a web developer<small class="pull-right top30 hidden-sm hidden-xs">with Carlos Castillo</small></a></h1>
+        <ol class="breadcrumb hidden-xs">
             <li><a href="{{ URL::to('/') }}" title="home">Home</a></li>
             <li class="active">Contact</li>
         </ol>
@@ -16,10 +16,10 @@
 <div class="container">
     <div class="bottom40 text-center">
         <button type="button" class="btn btn-default btn-circle btn-xl text-block"><i class="fa fa-hand-peace-o fa-2x" aria-hidden="true"></i></button>
-        <h3>Some question?, need a web site, web app, or just hire me??<br> 
-            <small>Please contact with me...</small></h3>
+        <h3>Get in touch with me today<br> 
+            <small>Enter your contact info and comments in the form below</small></h3>
         <p class="">
-            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.
+            I will answer as soon as possible.
         </p>
     </div>
     
@@ -115,7 +115,7 @@
                     <hr>
                     <div class="form-group">
                         {!! Form::button('<i class="fa fa-envelope" aria-hidden="true"></i> Send', 
-                          array('type' => 'submit', 'class'=>'btn btn-primary btn-lg btn-block btnStar btnClick')) !!}
+                          array('type' => 'submit', 'class'=>'btn btn-primary btn-lg btn-block btnStar')) !!}
                     </div>
                     <p class="help-text">(*) Required fields</p>
                 {!! Form::close() !!}

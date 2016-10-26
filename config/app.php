@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://carloscastillo.local'),
+    'url' => env('APP_URL', 'http://carloscastillo.cl'),
 
     /*
     |--------------------------------------------------------------------------

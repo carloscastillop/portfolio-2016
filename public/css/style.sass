@@ -51,19 +51,23 @@ p
 .top50
     margin-top: 40px
 
+.bottom0
+    margin-bottom: 0px !important
+
 .bottom10
-    margin-bottom: 10px
+    margin-bottom: 10px !important
 
 .bottom20
-    margin-bottom: 20px
+    margin-bottom: 20px !important
 
 .bottom30
-    margin-bottom: 30px
+    margin-bottom: 30px !important
 
 .bottom40
-    margin-bottom: 40px
+    margin-bottom: 40px !important
 
 .navbar-inverse
+    border-bottom-color: $colorPrimero
     #navbar-main
         ul.nav.navbar-nav
             li a:hover
@@ -72,7 +76,8 @@ p
             li a:hover ~ .navbar-inverse 
                 border-color: $colorQuinto
             li.active a
-                background-color: $colorSegundo
+                background-color: $colorPrimero
+                color: #fff
                 &:hover
                     background-color: $colorQuinto
 
@@ -82,6 +87,8 @@ p
 .profile-thumb
     float: left
     position: relative
+    @media screen and (max-width: 800px)
+        top: 27px
     img
         width: 140px
         height: 140px
@@ -96,10 +103,20 @@ p
         right: 0
         &:hover
             cursor: pointer 
+        @media screen and (max-width: 800px)
+        width: 90px
+        height: 90px
 .fb-name
     bottom: 5px
     left: 175px
     position: absolute
+    @media screen and (max-width: 1200px)
+        
+    @media screen and (max-width: 1024px)
+        
+    @media screen and (max-width: 800px)
+        left: 10px
+        bottom: 50px
     h2 
         text-rendering: optimizelegibility
         text-shadow: 1px 1px 3px rgba(0, 0, 0, 1)
@@ -122,6 +139,8 @@ p
 .socialInfoContainer
     margin: 0px 0 0 160px
     display: inline-block
+    @media screen and (max-width: 800px)
+        margin: 20px 0 0 0px
 
 .social-icons
     list-style: none
@@ -129,6 +148,10 @@ p
     margin: 0
     float: left
     margin-left: 15px
+    @media screen and (max-width: 800px)
+        margin-left: 0
+        margin-top: 10px
+
 
 .social-icons > li 
     display: inline-block
@@ -392,8 +415,9 @@ footer
             height: 140px
         @media screen and (max-width: 1024px)
             height: 160px
-        @media screen and (max-width: 800px)
+        @media screen and (max-width: 790px)
             height: auto
+            min-height: 85px
     .thumbnail.home
         height: 100px
         @media screen and (max-width: 1200px)
@@ -402,6 +426,7 @@ footer
             height: 160px
         @media screen and (max-width: 800px)
             height: auto
+            min-height: 70px
 
 #recaptchaContainer
     display: none
@@ -427,6 +452,9 @@ footer
     h1
         color: $colorSegundo
         text-shadow: 0 1px 0 rgba(0, 0, 0, 0.8)
+        a
+            color: $colorSegundo
+            text-decoration: none
         small
             color: $colorSegundo
             font-size: 30%
@@ -488,20 +516,21 @@ footer
         border-top-left-radius: 0
         margin-bottom: 50px
         .panel-image
-            overflow: hidden                    
+            overflow: hidden 
+            border-bottom: solid 1px $colorSegundo                   
         .panel-image img
             border-top-right-radius: 3px
             border-top-left-radius: 3px
             -webkit-transition: transform .2s ease-out
             transition: transform .2s ease-out
-            filter: grayscale(90%) /* Current draft standard */
-            -webkit-filter: grayscale(90%) /* New WebKit */
-            -moz-filter: grayscale(90%)
-            -ms-filter: grayscale(90%) 
-            -o-filter: grayscale(90%) /* Not yet supported in Gecko, Opera or IE */ 
+            filter: grayscale(50%) /* Current draft standard */
+            -webkit-filter: grayscale(50%) /* New WebKit */
+            -moz-filter: grayscale(50%)
+            -ms-filter: grayscale(50%) 
+            -o-filter: grayscale(50%) /* Not yet supported in Gecko, Opera or IE */ 
             filter: url(resources.svg#desaturate) /* Gecko */
             filter: gray /* IE */
-            -webkit-filter: grayscale(0.9) /* Old WebKit */
+            -webkit-filter: grayscale(0.5) /* Old WebKit */
         .panel-body
             padding: 10px
             .caption
@@ -530,11 +559,17 @@ footer
             background-color: transparent
             h2 
                 margin: 0
-                line-height: 0.4
+                line-height: initial
                 font-weight: bold
+                font-size: 18px
                 a
-                    font-size: 14px
                     color: $colorCuarto
+            h4
+                margin: 0
+                line-height: initial
+                font-weight: normal
+                font-size: 10px
+                color: $colorPrimero
             
 .modal-load
     display:    none
@@ -624,14 +659,18 @@ body.modal-open #wrap
     margin-top: 0
     h3
         color: $colorSegundo
+        margin-top: 1px
     h4
         color: $colorPrimero
+        margin-top: 1px
     h5
         color: $colorPrimero
     p
         color: $colorSegundo
         font-size: 13px
         font-family: "Michroma",sans-serif
+    small
+        color: $colorPrimero
     .well
         margin: 20px 0 0 0
         background-color: rgba(0,0,0, 0.4)
@@ -647,6 +686,11 @@ body.modal-open #wrap
             margin: 0
             text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.8)
             font-size: 40px
+            @media screen and (max-width: 790px)
+                font-size: 20px
+    .thumbnail
+        background-color: $colorCuarto
+        border-color: #2B2A27
 .modal .close
     color: $colorSegundo
     opacity: 1
@@ -749,13 +793,18 @@ body.modal-open #wrap
                 height: 160px
             @media screen and (max-width: 790px)
                 height: auto
+                min-height: 85px
 .modalContainer
     .SkillsList
         .thumbnail
             height: 50px
+            @media screen and (max-width: 790px)
+                height: 65px
 .projectDetail
     .thumbnail
         height: 50px
+        @media screen and (max-width: 790px)
+            height: 65px
     h3
         margin-top: 0px
         a
@@ -794,3 +843,12 @@ body.modal-open #wrap
     a
         color: #fff
         font-weight: bold
+img.lazy
+    min-height: 211px
+    width: 100%
+.navbar-inverse .navbar-toggle, .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus
+    background-color: #333
+.navbar-inverse .navbar-toggle
+    border-color: #000
+.navbar-inverse .navbar-toggle .icon-bar
+    background-color: $colorSegundo

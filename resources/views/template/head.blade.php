@@ -7,6 +7,7 @@
     <?php 
     if(!isset($metaTitle))      $metaTitle="";
     if(!isset($metaContent))    $metaContent="";
+    if(!isset($metaKeywords))    $metaKeywords="";
     ?>
     <title>{{ $metaTitle }} | {{ Config::get('settings.sitename') }}</title>    
     <meta name="title" content="{{ $metaTitle }} | {{ Config::get('settings.sitename') }}">
@@ -16,7 +17,7 @@
     <meta http-equiv="DC.Description" content="{{ $metaContent }}">
     <meta property="og:description" content="{{ $metaContent }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="{{{ isset($metakeywords) ? $metakeywords : Config::get('settings.metakeywords').', '.$metaTitle }}}">
+    <meta name="keywords" content="{{ $metaKeywords }}{{ Config::get('settings.keywords') }}">
     <meta property="og:image" content="{{ URL::to('/img/og-image.jpg') }}"/>
     <meta name="resource-type" content="document">
     <meta name="revisit-after" content="7 days">
@@ -35,8 +36,8 @@
     <meta name="doc-rights" content="{{ Config::get('settings.sitename') }}">
     <meta name="doc-publisher" content="{{ Config::get('settings.sitename') }}">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="canonical" href="{{ URL::to('/') }}/{{ Request::path() }}">
-    <meta property="og:url" content="{{ URL::to('/') }}/{{ Request::path() }}">
+    <link rel="canonical" href="{{ Request::fullUrl() }}">
+    <meta property="og:url" content="{{ Request::fullUrl() }}">
     <meta property="og:site_name" content="{{ Config::get('settings.sitename') }}">
 
     <!-- Favicon -->
@@ -76,7 +77,7 @@
       <script src="{{ URL::to('/bower_components/respond/dest/respond.min.js') }}"></script>
     <![endif]-->
     @if(Request::is('portfolio*'))
-
+        <script type="text/javascript" src="{{ URL::to('js/masonry.pkgd.min.js') }}"></script>
     @endif
 
 </head>

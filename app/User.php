@@ -41,4 +41,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('Portfolio\Contact', 'users_id');
     }
+
+    public function projects()
+    {
+        return $this->hasMany('Portfolio\Project', 'users_id');
+    }
 }

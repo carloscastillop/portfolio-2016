@@ -4,8 +4,9 @@
     <div class="modalContainer">
         <div class="page-header-2">
             <div class="container">
+                <button type="button" class="close pull-right hidden-xs" data-dismiss="modal" aria-label="Close">×</button>
                 <h2 class="pull-left" id="modal-title">Project name 001</h2>
-                <button type="button" class="close pull-right" data-dismiss="modal" aria-label="Close">×</button>
+                
             </div>
         </div>
         <div class="container">
@@ -20,7 +21,9 @@
                             <div class="carousel-inner cont-slider">
 
                                 <div class="item active">
-                                    <img id="modal-imgPpal" alt="" title="" src="http://placehold.it/640x480" class="img-responsive">
+                                    <a class="fancybox" id="modal-fancy" href="http://placehold.it/640x480">
+                                        <img id="modal-imgPpal" alt="" title="" src="http://placehold.it/640x480" class="img-responsive thumbnail">
+                                    </a>
                                 </div>
                                 
                             </div>
@@ -49,7 +52,7 @@
                         <h5>Used technologies</h5>
                         <div class="row SkillsList SkillsListModal">
                             @foreach($skills as $skill)
-                                <div id="modalEachSkill-{{ $skill->id }}" class="col-xs-6 col-sm-3 col-md-2 eachSkill" style="display:none">
+                                <div id="modalEachSkill-{{ $skill->id }}" class="col-xs-4 col-sm-3 col-md-2 eachSkill" style="display:none">
                                     <div id="thumbnail-{{ $skill->id }}" class="thumbnail" data-toggle="tooltip" data-placement="bottom" title="{{ $skill->name }}">
                                         {!! $skill->image !!}
                                     </div>
@@ -59,11 +62,14 @@
                     </div>
                 </div>
             </div>
-            <div class="bottom10">
+            <div class="bottom50">
                 <div class="well">
-                    <a href="#" class="btn btn-lg btn-block btn-primary" data-dismiss="modal" aria-label="Close">Close</a>
+                    <a href="#" class="btn btn-lg btn-block btn-primary" data-dismiss="modal" aria-label="Close"><i class="fa fa-close" aria-hidden="true"></i> Close</a>
+
                 </div>
+                <div class="clearfix"></div>
             </div>
+            <div class="clearfix"></div>
         </div>
     </div>
 </div>

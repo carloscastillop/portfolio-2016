@@ -4,8 +4,8 @@
 <!-- header -->
 <div class="page-header">
     <div class="container">
-        <h1>Portfolio web <small class="pull-right top30 hidden-sm hidden-xs">Carlos Castillo - web developer</small></h1>
-        <ol class="breadcrumb">
+        <h1><a href="{{ URL::to('portfolio') }}" title="Porftolio Web sites">Portfolio web <small class="pull-right top30 hidden-sm hidden-xs">Carlos Castillo - web developer</small></a></h1>
+        <ol class="breadcrumb hidden-xs">
             <li><a href="{{ URL::to('/') }}" title="home">Home</a></li>
             <li class="active">Portfolio</li>
         </ol>
@@ -15,9 +15,9 @@
 <!-- List of jobs -->
 <div class="container">
     <div class="bottom40">
-        <h3>Last and relevant developed web projects</h3>
+        <h3>PHP & Responsive Front-end Development</h3>
         <p class="">
-            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.
+            Only some of my projects the last two years.
         </p>
     </div>
     
@@ -43,33 +43,36 @@
         </div>
     @endif
 
-    <div class="rowMasonry portfolioList">
+    <div class="row grid rowMasonryX portfolioList clearfix">
         
         @foreach($projects as $project)
-        <div id="portfolio-{{ $project->id }}" class="panel panelMasonry panel-default eachPortfolio">
-            <div class="panel-image">
-                <img id="minPpal-{{ $project->id }}" src="{{ URL::to('images/portfolio/'.$project->image) }}" class="img-responsive" alt="{{ $project->name }}" />
-            </div>
-            <div class="panel-heading">
-                <h2><a id="title-{{ $project->id }}" href="{{ URL::to('/portfolio/'.str_slug($project->name, '-').'/'.$project->id)}}" title="{{ $project->name }}">{{ $project->name }}</a></h2>
-            </div>
-            <div class="panel-body" id="description-{{ $project->id }}">{{ $project->description }}</div>
-            <div class="panel-footer">
-                
-                <input type="hidden" name="client" id="client-{{ $project->id }}" value="{{ $project->client }}">
-                <?php 
-                    $skillsP='';
-                    foreach($project->skills as $leSkill){
-                        $skillsP.=$leSkill->id.',';
-                    }
-                    $skillsP = substr($skillsP, 0, -1);
-                ?>
-                <input type="hidden" name="skills" id="skills-{{ $project->id }}" value="{{ $skillsP }}">
-                @if($project->link_available)
-                <input type="hidden" name="link" id="link-{{ $project->id }}" value="{{ $project->link }}">
-                @else
-                <input type="hidden" name="link" id="link-{{ $project->id }}" value="">
-                @endif
+        <div class="col-xs-12 col-sm-6 col-md-4 eachProject">
+            <div id="portfolio-{{ $project->id }}" class="panel panelMasonry panel-default eachPortfolio">
+                <div class="panel-image">
+                    <img id="minPpal-{{ $project->id }}" data-original="{{ URL::to('images/portfolio/'.$project->image) }}" class="img-responsive lazy" alt="{{ $project->name }}"/>
+                </div>
+                <div class="panel-heading">
+                    <h2><a id="title-{{ $project->id }}" href="{{ URL::to('/portfolio/'.str_slug($project->name, '-').'/'.$project->id)}}" title="{{ $project->name }}">{{ $project->name }}</a></h2>
+                    <h4><i class="fa fa-user" aria-hidden="true"></i> {{ $project->client }}</h4>
+                </div>
+                <div class="panel-body" id="description-{{ $project->id }}">{{ $project->description }}</div>
+                <div class="panel-footer">
+                    
+                    <input type="hidden" name="client" id="client-{{ $project->id }}" value="{{ $project->client }}">
+                    <?php 
+                        $skillsP='';
+                        foreach($project->skills as $leSkill){
+                            $skillsP.=$leSkill->id.',';
+                        }
+                        $skillsP = substr($skillsP, 0, -1);
+                    ?>
+                    <input type="hidden" name="skills" id="skills-{{ $project->id }}" value="{{ $skillsP }}">
+                    @if($project->link_available)
+                    <input type="hidden" name="link" id="link-{{ $project->id }}" value="{{ $project->link }}">
+                    @else
+                    <input type="hidden" name="link" id="link-{{ $project->id }}" value="">
+                    @endif
+                </div>
             </div>
         </div>
         @endforeach

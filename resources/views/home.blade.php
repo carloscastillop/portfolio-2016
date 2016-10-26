@@ -54,29 +54,32 @@
             <div class="panel panel-default panelHomeProject">
                 <div class="panel-heading"><h3>My last projects</h3></div>
                 <div class="panel-body">
-                    <div class="rowMasonryHome portfolioList">
+                    <div class="row portfolioList">
                         @foreach($leProject as $project)
-                        <a id="title-{{ $project->id }}" href="{{ URL::to('/portfolio/'.str_slug($project->name, '-').'/'.$project->id)}}" title="{{ $project->name }}">
-                        <div id="portfolio-{{ $project->id }}" class="panel panelMasonry panel-default eachPortfolio">
-                            <div class="panel-image">
-                                <img id="minPpal-{{ $project->id }}" src="{{ URL::to('images/portfolio/'.$project->image) }}" class="img-responsive" alt="{{ $project->name }}" />
-                            </div>
-                            <div class="panel-heading">
-                                <h2><a id="title-{{ $project->id }}" href="{{ URL::to('/portfolio/'.str_slug($project->name, '-').'/'.$project->id)}}" title="{{ $project->name }}">{{ $project->name }}</a></h2>
-                            </div>
-                            <div class="panel-body" id="description-{{ $project->id }}">
-                                <?php $leSkills = ''; $count=0;?>
-                                    @foreach($project->skills as $lsk)
-                                        @if($count < 5)
-                                        <?php $leSkills.= $lsk->name.', ';
-                                        $count ++; ?>
-                                        @endif
-                                    @endforeach
-                                    <?php $leSkills = substr($leSkills, 0, -2).' and more...';?>
-                                    {{ $leSkills }}
-                            </div>
-                        </div> 
-                        </a>                               
+                        <div class="col-md-6">
+                            <a id="title-{{ $project->id }}" href="{{ URL::to('/portfolio/'.str_slug($project->name, '-').'/'.$project->id)}}" title="{{ $project->name }}">
+                            <div id="portfolio-{{ $project->id }}" class="panel panelMasonry panel-default eachPortfolio bottom10">
+                                <div class="panel-image">
+                                    <img id="minPpal-{{ $project->id }}" src="{{ URL::to('images/portfolio/'.$project->image) }}" class="img-responsive" alt="{{ $project->name }}" />
+                                </div>
+                                <div class="panel-heading">
+                                    <h2><a id="title-{{ $project->id }}" href="{{ URL::to('/portfolio/'.str_slug($project->name, '-').'/'.$project->id)}}" title="{{ $project->name }}">{{ $project->name }}</a></h2>
+                                    <h4><i class="fa fa-user" aria-hidden="true"></i> {{ $project->client }}</h4>
+                                </div>
+                                <div class="panel-body" id="description-{{ $project->id }}">
+                                    <?php $leSkills = ''; $count=0;?>
+                                        @foreach($project->skills as $lsk)
+                                            @if($count < 5)
+                                            <?php $leSkills.= $lsk->name.', ';
+                                            $count ++; ?>
+                                            @endif
+                                        @endforeach
+                                        <?php $leSkills = substr($leSkills, 0, -2).' and more...';?>
+                                        {{ $leSkills }}
+                                </div>
+                            </div> 
+                            </a>
+                        </div>                               
                         @endforeach
                     </div>
                 </div>
@@ -92,7 +95,7 @@
                 <div class="panel-body">
                     <div class="row SkillsList">
                         @foreach($skills as $skill)
-                        <div class="col-xs-6 col-sm-3 col-md-2 eachSkill">
+                        <div class="col-xs-4 col-sm-3 col-md-2 eachSkill">
                             <div class="thumbnail home" data-toggle="tooltip" data-placement="bottom" title="{{ $skill->name }}">
                                 {!! $skill->image !!}
                             </div>
@@ -113,11 +116,11 @@
                 <!-- FORM WEB -->
                 <div class="col-sm-6 col-md-12">
                     <div class="panel panel-default">
-                        <div class="panel-heading"><h3>Do you want a web project??</h3></div>
+                        <div class="panel-heading"><h3>Are you looking for a web app?</h3></div>
                         <div class="panel-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur hendrerit blandit nibh, id ultricies quam blandit feugiat. </p>
+                            <p>You can contact me by clicking the next button and let's work together!!</p>
                             <div class="well center-block">
-                                <a href="{{ URL::to('/contact/?op=2') }}" class="btn btn-primary btn-lg btn-block" title="Click to contact me"><i class="fa fa-edit" aria-hidden="true"></i> Start here</a>
+                                <a href="{{ URL::to('/contact/?op=2') }}" class="btn btn-primary btn-lg btn-block" title="Click to contact me"><i class="fa fa-envelope" aria-hidden="true"></i> Contact me</a>
                             </div>
                         </div>
                     </div>
@@ -128,9 +131,9 @@
                     <div class="panel panel-default">
                         <div class="panel-heading"><h3>Get my CV</h3></div>
                         <div class="panel-body">
-                            <p>Curabitur hendrerit blandit nibh, id ultricies quam blandit feugiat. </p>
+                            <p>I am pleased to present my CV for your consideration as a <strong>PHP & Front-end Developer</strong>.</p>
                             <div class="well center-block">
-                                <a href="{{ URL::to('get-my-cv') }}" class="btn btn-primary btn-lg btn-block" title="Click for the next step!"><i class="fa fa-envelope" aria-hidden="true"></i> Start here</a>
+                                <a href="{{ URL::to('get-my-cv') }}" class="btn btn-primary btn-lg btn-block" title="Click for the next step!"><i class="fa fa-star" aria-hidden="true"></i> Start here</a>
                             </div>
                         </div>
                     </div>
@@ -139,9 +142,9 @@
                 <!-- SMS api -->
                 <div class="col-sm-6 col-md-12">
                     <div class="panel panel-default">
-                        <div class="panel-heading"><h3>Send a SMS!!</h3></div>
+                        <div class="panel-heading"><h3>SMS services (API)</h3></div>
                         <div class="panel-body">
-                            <p>Consectetur adipiscing elit. Curabitur hendrerit blandit nibh, id ultricies quam blandit feugiat. </p>
+                            <p>If you want to test my app to send SMS, enter your phone number in the form below. (Only UK numbers)</p>
                             {!! Form::open(array('url' => '/send-sms', 'class' => 'form smsForm', 'id' => 'smsForm')) !!}
                                 <div class="form-group">
                                     <label class="sr-only" for="smsInput">Code area</label>

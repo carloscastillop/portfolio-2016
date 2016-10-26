@@ -45,27 +45,33 @@ p {
 .top50 {
   margin-top: 40px; }
 
+.bottom0 {
+  margin-bottom: 0px !important; }
+
 .bottom10 {
-  margin-bottom: 10px; }
+  margin-bottom: 10px !important; }
 
 .bottom20 {
-  margin-bottom: 20px; }
+  margin-bottom: 20px !important; }
 
 .bottom30 {
-  margin-bottom: 30px; }
+  margin-bottom: 30px !important; }
 
 .bottom40 {
-  margin-bottom: 40px; }
+  margin-bottom: 40px !important; }
 
-.navbar-inverse #navbar-main ul.nav.navbar-nav li a:hover {
-  background-color: #8C8C8B;
-  color: #F2F2F2; }
-.navbar-inverse #navbar-main ul.nav.navbar-nav li a:hover ~ .navbar-inverse {
-  border-color: #8C8C8B; }
-.navbar-inverse #navbar-main ul.nav.navbar-nav li.active a {
-  background-color: #F2F2F2; }
-  .navbar-inverse #navbar-main ul.nav.navbar-nav li.active a:hover {
-    background-color: #8C8C8B; }
+.navbar-inverse {
+  border-bottom-color: #BFBFBF; }
+  .navbar-inverse #navbar-main ul.nav.navbar-nav li a:hover {
+    background-color: #8C8C8B;
+    color: #F2F2F2; }
+  .navbar-inverse #navbar-main ul.nav.navbar-nav li a:hover ~ .navbar-inverse {
+    border-color: #8C8C8B; }
+  .navbar-inverse #navbar-main ul.nav.navbar-nav li.active a {
+    background-color: #BFBFBF;
+    color: #fff; }
+    .navbar-inverse #navbar-main ul.nav.navbar-nav li.active a:hover {
+      background-color: #8C8C8B; }
 
 .cover-photo {
   position: relative; }
@@ -73,6 +79,9 @@ p {
 .profile-thumb {
   float: left;
   position: relative; }
+  @media screen and (max-width: 800px) {
+    .profile-thumb {
+      top: 27px; } }
   .profile-thumb img {
     width: 140px;
     height: 140px;
@@ -84,7 +93,9 @@ p {
     top: 0;
     left: 0;
     bottom: 0;
-    right: 0; }
+    right: 0;
+    width: 90px;
+    height: 90px; }
     .profile-thumb img:hover {
       cursor: pointer; }
 
@@ -92,6 +103,10 @@ p {
   bottom: 5px;
   left: 175px;
   position: absolute; }
+  @media screen and (max-width: 800px) {
+    .fb-name {
+      left: 10px;
+      bottom: 50px; } }
   .fb-name h2 {
     text-rendering: optimizelegibility;
     text-shadow: 1px 1px 3px black;
@@ -114,6 +129,9 @@ p {
 .socialInfoContainer {
   margin: 0px 0 0 160px;
   display: inline-block; }
+  @media screen and (max-width: 800px) {
+    .socialInfoContainer {
+      margin: 20px 0 0 0px; } }
 
 .social-icons {
   list-style: none;
@@ -121,6 +139,10 @@ p {
   margin: 0;
   float: left;
   margin-left: 15px; }
+  @media screen and (max-width: 800px) {
+    .social-icons {
+      margin-left: 0;
+      margin-top: 10px; } }
 
 .social-icons > li {
   display: inline-block; }
@@ -377,9 +399,10 @@ footer {
   @media screen and (max-width: 1024px) {
     .eachSkill .thumbnail {
       height: 160px; } }
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 790px) {
     .eachSkill .thumbnail {
-      height: auto; } }
+      height: auto;
+      min-height: 85px; } }
 .eachSkill .thumbnail.home {
   height: 100px; }
   @media screen and (max-width: 1200px) {
@@ -390,7 +413,8 @@ footer {
       height: 160px; } }
   @media screen and (max-width: 800px) {
     .eachSkill .thumbnail.home {
-      height: auto; } }
+      height: auto;
+      min-height: 70px; } }
 
 #recaptchaContainer {
   display: none; }
@@ -416,6 +440,9 @@ footer {
   .page-header h1 {
     color: #F2F2F2;
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.8); }
+    .page-header h1 a {
+      color: #F2F2F2;
+      text-decoration: none; }
     .page-header h1 small {
       color: #F2F2F2;
       font-size: 30%; }
@@ -466,20 +493,21 @@ footer {
   border-top-left-radius: 0;
   margin-bottom: 50px; }
   .portfolioList .panel .panel-image {
-    overflow: hidden; }
+    overflow: hidden;
+    border-bottom: solid 1px #F2F2F2; }
   .portfolioList .panel .panel-image img {
     border-top-right-radius: 3px;
     border-top-left-radius: 3px;
     -webkit-transition: transform 0.2s ease-out;
     transition: transform 0.2s ease-out;
-    filter: grayscale(90%);
-    -webkit-filter: grayscale(90%);
-    -moz-filter: grayscale(90%);
-    -ms-filter: grayscale(90%);
-    -o-filter: grayscale(90%);
+    filter: grayscale(50%);
+    -webkit-filter: grayscale(50%);
+    -moz-filter: grayscale(50%);
+    -ms-filter: grayscale(50%);
+    -o-filter: grayscale(50%);
     filter: url(resources.svg#desaturate);
     filter: gray;
-    -webkit-filter: grayscale(0.9); }
+    -webkit-filter: grayscale(0.5); }
   .portfolioList .panel .panel-body {
     padding: 10px; }
     .portfolioList .panel .panel-body .caption {
@@ -508,11 +536,17 @@ footer {
     background-color: transparent; }
     .portfolioList .panel .panel-heading h2 {
       margin: 0;
-      line-height: 0.4;
-      font-weight: bold; }
+      line-height: initial;
+      font-weight: bold;
+      font-size: 18px; }
       .portfolioList .panel .panel-heading h2 a {
-        font-size: 14px;
         color: #403F3C; }
+    .portfolioList .panel .panel-heading h4 {
+      margin: 0;
+      line-height: initial;
+      font-weight: normal;
+      font-size: 10px;
+      color: #BFBFBF; }
 
 .modal-load {
   display: none;
@@ -604,15 +638,19 @@ body.modal-open #wrap {
 .modalContainer {
   margin-top: 0; }
   .modalContainer h3 {
-    color: #F2F2F2; }
+    color: #F2F2F2;
+    margin-top: 1px; }
   .modalContainer h4 {
-    color: #BFBFBF; }
+    color: #BFBFBF;
+    margin-top: 1px; }
   .modalContainer h5 {
     color: #BFBFBF; }
   .modalContainer p {
     color: #F2F2F2;
     font-size: 13px;
     font-family: "Michroma", sans-serif; }
+  .modalContainer small {
+    color: #BFBFBF; }
   .modalContainer .well {
     margin: 20px 0 0 0;
     background-color: rgba(0, 0, 0, 0.4);
@@ -628,6 +666,12 @@ body.modal-open #wrap {
       margin: 0;
       text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.8);
       font-size: 40px; }
+      @media screen and (max-width: 790px) {
+        .modalContainer .page-header-2 h2 {
+          font-size: 20px; } }
+  .modalContainer .thumbnail {
+    background-color: #403F3C;
+    border-color: #2B2A27; }
 
 .modal .close {
   color: #F2F2F2;
@@ -731,13 +775,20 @@ body.modal-open #wrap {
       height: 160px; } }
   @media screen and (max-width: 790px) {
     .footerSkills .SkillsList .thumbnail {
-      height: auto; } }
+      height: auto;
+      min-height: 85px; } }
 
 .modalContainer .SkillsList .thumbnail {
   height: 50px; }
+  @media screen and (max-width: 790px) {
+    .modalContainer .SkillsList .thumbnail {
+      height: 65px; } }
 
 .projectDetail .thumbnail {
   height: 50px; }
+  @media screen and (max-width: 790px) {
+    .projectDetail .thumbnail {
+      height: 65px; } }
 .projectDetail h3 {
   margin-top: 0px; }
   .projectDetail h3 a {
@@ -775,5 +826,18 @@ body.modal-open #wrap {
 .alert a {
   color: #fff;
   font-weight: bold; }
+
+img.lazy {
+  min-height: 211px;
+  width: 100%; }
+
+.navbar-inverse .navbar-toggle, .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+  background-color: #333; }
+
+.navbar-inverse .navbar-toggle {
+  border-color: #000; }
+
+.navbar-inverse .navbar-toggle .icon-bar {
+  background-color: #F2F2F2; }
 
 /*# sourceMappingURL=style.css.map */

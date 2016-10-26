@@ -14,19 +14,25 @@
 ///HOME
 Route::get('/', function () {
     $user  	= \Portfolio\User::find(1);
-    $skills = \Portfolio\Skill::where('active',1)->where('skill_categories_id',1)->orderBy('order', 'asc')->take(12)->get();
+    $skills = \Portfolio\Skill::where('active',1)->where('skill_categories_id',1)->orderBy('order', 'asc')->take(6)->get();
     $leProject = \Portfolio\Project::where('active',1)->where('home',1)->orderBy('order', 'asc')->take(2)->inRandomOrder()->get();
-    return view('home')->with('skills', $skills)->with('leProject', $leProject)->with('user', $user); 
+
+    $metaTitle    = 'Web developer in Manchester';
+    $metaContent  = 'PHP and Responsive Front-end Development';
+    $metaKeywords = 'home, manchester, web manchester,';
+
+    return view('home')->with('skills', $skills)->with('leProject', $leProject)->with('user', $user)->with('metaTitle', $metaTitle)->with('metaContent', $metaContent)->with('metaKeywords', $metaKeywords); 
 });
 
 Route::get('/portfolio', function () {
 	$projects = \Portfolio\Project::where('active',1)->orderBy('order', 'asc')->get();
 	$skills   = \Portfolio\Skill::where('active', 1)->where('skill_categories_id',1)->orderBy('order', 'asc')->get();
-
-    return view('portfolio')->with('projects', $projects)->with('skills', $skills);
+    $metaTitle    = 'PHP & Responsive Front-end Development';
+    $metaContent  = 'PHP & Responsive Front-end Development';
+    return view('portfolio')->with('projects', $projects)->with('skills', $skills)->with('metaTitle', $metaTitle)->with('metaContent', $metaContent);
 });
 
-/// detalle portfolio
+/// detalle portfolio My skills and competences
 Route::get('/portfolio/{slug}/{id}', function ($slug, $id) {
 	$query          = array('id' => $id);
     $rules = array(
@@ -65,9 +71,22 @@ Route::get('/portfolio/skill/{slug}/{id}', function ($slug, $id) {
 Route::get('/skills-competences', function () {
 	$skills = \Portfolio\Skill::where('active',1)->orderBy('order', 'asc')->where('skill_categories_id',1)->get();
 	$others = \Portfolio\Skill::where('active',1)->orderBy('order', 'asc')->where('skill_categories_id',2)->get();
+
+    $leMeta = '';
+    foreach($skills as $skill){
+        $leMeta.= $skill->name.', ';     
+    }
+    $leMeta = substr($leMeta, 0, -2);
+
+    $metaTitle    = 'My skills and competences';
+    $metaContent  = $leMeta;
+
+
     return view('skills-competences')
     		->with('skills', $skills) 
-    		->with('others', $others);
+    		->with('others', $others)
+            ->with('metaTitle', $metaTitle)
+            ->with('metaContent', $metaContent);
 });
 
 Route::get('/login', function () {

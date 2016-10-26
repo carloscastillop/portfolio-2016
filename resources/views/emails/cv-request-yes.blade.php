@@ -36,9 +36,17 @@
 							<p style="font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif; color: #333; font-weight: normal; font-size: 14px; line-height: 1.6; margin: 0 0 10px; padding: 0;">You can see a list of my last works:</p>
 							<div style="background-color:#F5F5F5; padding:10px 20px 10px 30px; margin-bottom: 20px;">
 								<ul style="padding: 0">
-									@for($i=0; $i<15; $i++)
-									<li><a href="#" style="color: #403F3C"><strong>Bicitrader.cl</strong></a><small>: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non nisl condimentum, tristique leo vel, porttitor enim. Ut fermentum eu elit sed bibendum. </small></li>
-									@endfor
+									@foreach($portfolio as $project)
+									<li>
+										@if($project->link_available)
+										<a href="{{ $project->link }}" title="visit {{ $project->name }}" style="color: #403F3C">
+										@endif
+										<strong>{{ $project->name }}</strong>
+										@if($project->link_available)
+										</a>
+										@endif
+										<small>: {{ $project->description }} </small></li>
+									@endforeach
 									<li><a href="{{ URL::to('portfolio') }}" style="color: #403F3C">See all my portfolio!</a></li>
 								</ul>
 							</div>

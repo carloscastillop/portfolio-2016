@@ -13,4 +13,9 @@ class Project extends Model
         return $this->belongsToMany('Portfolio\Skill', 'projects_has_skills', 'projects_id', 'skills_id');
 
     }
+
+    public function user()
+    {
+        return $this->belongsTo('Portfolio\User');
+    }
 }
