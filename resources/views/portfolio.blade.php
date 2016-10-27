@@ -17,7 +17,7 @@
     <div class="bottom40">
         <h3>PHP & Responsive Front-end Development</h3>
         <p class="">
-            Only some of my projects the last two years.
+            Just some of my developed projects on the last two years.
         </p>
     </div>
     

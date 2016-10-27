@@ -90,7 +90,7 @@
             </div>
             
             <!-- Skills -->
-            <div class="panel panel-default">
+            <div class="panel panel-default panelHomeSkills">
                 <div class="panel-heading"><h3>Skills & competences</h3></div>
                 <div class="panel-body">
                     <div class="row SkillsList">
@@ -114,7 +114,7 @@
 
             <div class="row">
                 <!-- FORM WEB -->
-                <div class="col-sm-6 col-md-12">
+                <div class="col-xs-12 col-sm-6 col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading"><h3>Are you looking for a web app?</h3></div>
                         <div class="panel-body">
@@ -138,6 +138,7 @@
                         </div>
                     </div>
                 </div>
+                <div class="clearfix"></div>
 
                 <!-- SMS api -->
                 <div class="col-sm-6 col-md-12">

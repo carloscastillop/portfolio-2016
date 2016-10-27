@@ -166,6 +166,11 @@ return [
         */
         Barryvdh\Debugbar\ServiceProvider::class,
 
+        /*
+        * no-captcha https://github.com/anhskohbo/no-captcha  ...
+        */
+        Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
+
     ],
 
     /*

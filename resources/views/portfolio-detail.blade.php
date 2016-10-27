@@ -54,7 +54,7 @@
                 <h5>Skills used</h5>
                 <div class="row SkillsList SkillsListModal">
                     @foreach($project->skills as $skill)
-                    <div id="modalEachSkill-{{ $skill->id }}" class="col-xs-4 col-sm-3 col-md-2 eachSkill">
+                    <div id="modalEachSkill-{{ $skill->id }}" class="col-xs-4 col-sm-3 col-md-3 col-lg-2 eachSkill">
                         <div id="thumbnail-{{ $skill->id }}" class="thumbnail" data-toggle="tooltip" data-placement="bottom" title="{{ $skill->name }}">
                             {!! $skill->image !!}
                         </div>

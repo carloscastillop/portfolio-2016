@@ -21,8 +21,8 @@
                     <tr style="font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif; color: #333; margin: 0; padding: 0;">
 						<td style="font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif; color: #333; margin: 0; padding: 0;">
 						<h2 style="margin: 0; text-transform: uppercase;font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;">
-						<a href="'.URL.'" title="{{ Config::get('settings.sitename') }}" style="color: #403F3C; text-decoration: none; ">
-							Carlos cAstillo
+						<a href="{{ URL::to('/') }}" title="{{ Config::get('settings.sitename') }}" style="color: #403F3C; text-decoration: none; ">
+							Carlos Castillo Web developer
 						</a>
 						</h2>
 		

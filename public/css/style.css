@@ -408,7 +408,7 @@ footer {
   @media screen and (max-width: 1200px) {
     .eachSkill .thumbnail.home {
       height: 80px; } }
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 990px) {
     .eachSkill .thumbnail.home {
       height: 160px; } }
   @media screen and (max-width: 800px) {
@@ -789,6 +789,16 @@ body.modal-open #wrap {
   @media screen and (max-width: 790px) {
     .projectDetail .thumbnail {
       height: 65px; } }
+  @media screen and (max-width: 1200px) {
+    .projectDetail .thumbnail {
+      height: 70px; } }
+  @media screen and (max-width: 990px) {
+    .projectDetail .thumbnail {
+      height: 160px; } }
+  @media screen and (max-width: 790px) {
+    .projectDetail .thumbnail {
+      height: auto;
+      min-height: 70px; } }
 .projectDetail h3 {
   margin-top: 0px; }
   .projectDetail h3 a {
@@ -828,8 +838,36 @@ body.modal-open #wrap {
   font-weight: bold; }
 
 img.lazy {
-  min-height: 211px;
+  min-height: 263px;
   width: 100%; }
+  @media screen and (max-width: 1200px) {
+    img.lazy {
+      min-height: 214px;
+      width: 100%; } }
+  @media screen and (max-width: 990px) {
+    img.lazy {
+      min-height: 263px;
+      width: 100%; } }
+  @media screen and (max-width: 800px) {
+    img.lazy {
+      min-height: 250px;
+      width: 100%; } }
+  @media screen and (max-width: 580px) {
+    img.lazy {
+      min-height: 390px;
+      width: 100%; } }
+  @media screen and (max-width: 420px) {
+    img.lazy {
+      min-height: 280px;
+      width: 100%; } }
+  @media screen and (max-width: 380px) {
+    img.lazy {
+      min-height: 245px;
+      width: 100%; } }
+  @media screen and (max-width: 320px) {
+    img.lazy {
+      min-height: 211px;
+      width: 100%; } }
 
 .navbar-inverse .navbar-toggle, .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
   background-color: #333; }
@@ -839,5 +877,15 @@ img.lazy {
 
 .navbar-inverse .navbar-toggle .icon-bar {
   background-color: #F2F2F2; }
+
+@media screen and (max-width: 790px) {
+  #leCaptcha {
+    transform: scale(0.85);
+    -webkit-transform: scale(0.85);
+    transform-origin: 0 0;
+    -webkit-transform-origin: 0 0; } }
+
+i.fa.fa-big {
+  font-size: 150%; }
 
 /*# sourceMappingURL=style.css.map */

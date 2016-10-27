@@ -31,9 +31,16 @@ class ContactController extends Controller
 
     	$subjects = \Portfolio\SubjectContact::where('active',1)->orderBy('order', 'asc')->get();
 
+        $metaTitle    = 'Contact me';
+        $metaContent  = 'Get in touch with me today for a web site or web application';
+        $metaKeywords = 'contact, manchester, web manchester,';
+
     	return view('contact')
     			->with('subjects', $subjects)
-    			->with('op', $op);
+    			->with('op', $op)
+                ->with('metaTitle', $metaTitle)
+                ->with('metaContent', $metaContent)
+                ->with('metaKeywords', $metaKeywords);
     }
 
     public function store(ContactFormRequest $request)

@@ -20,7 +20,7 @@ class SendMailController extends Controller
                 'code'    => $cv->code      
             ), function($message) use ($cv)
 		{
-		    $message->to('portfolio@fionaycarlos.cl', 'Carlos Castillo')
+		    $message->to('info@carloscastillo.cl', 'Carlos Castillo')
 		    	->subject('New CV request from '.$cv->name);
 		});
 		return true;
@@ -40,8 +40,10 @@ class SendMailController extends Controller
                 'ip'        => $cv->IP
             ), function($message) use ($cv)
         {
-            $message->to('portfolio@fionaycarlos.cl', 'Carlos Castillo')
-                ->subject('New Contact from '.$cv->name);
+            $message->to('info@carloscastillo.cl', 'Carlos Castillo')
+                    ->replyTo($cv->email, $cv->name)
+                    ->cc($cv->email, $cv->name)
+                    ->subject('New Contact from '.$cv->name);
         });
         return true;
 

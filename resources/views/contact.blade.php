@@ -111,7 +111,10 @@
                                   'class'=>'form-control input-lg', 
                                   'placeholder'=>'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...')) !!}
                     </div>
-
+                    <div class="form-group">
+                        {!! app('captcha')->display($attributes = ['id'=>'leCaptcha']); !!}
+                        <p class="help-text"><i class="fa fa-arrow-up" aria-hidden="true"></i> What does this mean? <i class="fa fa-question-circle fa-big" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="reCAPTCHA is a free service that protects your website from spam and abuse."></i></p>
+                    </div>
                     <hr>
                     <div class="form-group">
                         {!! Form::button('<i class="fa fa-envelope" aria-hidden="true"></i> Send', 

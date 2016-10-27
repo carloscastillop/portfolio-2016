@@ -28,8 +28,10 @@ Route::get('/portfolio', function () {
 	$projects = \Portfolio\Project::where('active',1)->orderBy('order', 'asc')->get();
 	$skills   = \Portfolio\Skill::where('active', 1)->where('skill_categories_id',1)->orderBy('order', 'asc')->get();
     $metaTitle    = 'PHP & Responsive Front-end Development';
-    $metaContent  = 'PHP & Responsive Front-end Development';
-    return view('portfolio')->with('projects', $projects)->with('skills', $skills)->with('metaTitle', $metaTitle)->with('metaContent', $metaContent);
+    $metaContent  = 'See my portfolio with diferent kinds of web projects';
+    $metaKeywords = 'portfolio, manchester, web manchester,';
+
+    return view('portfolio')->with('projects', $projects)->with('skills', $skills)->with('metaTitle', $metaTitle)->with('metaContent', $metaContent)->with('metaKeywords', $metaKeywords);
 });
 
 /// detalle portfolio My skills and competences
@@ -43,7 +45,12 @@ Route::get('/portfolio/{slug}/{id}', function ($slug, $id) {
     	return \Redirect::to('/portfolio');
     }
     $project = \Portfolio\Project::find($id);
-    return view('portfolio-detail')->with('project', $project);
+
+    $metaTitle    = $project->name;
+    $metaContent  = 'Portfolio: '.$project->description;
+    $metaKeywords = str_replace(' ', ',', $project->name).', '.str_replace(' ', ', ', $project->description);
+
+    return view('portfolio-detail')->with('project', $project)->with('metaTitle', $metaTitle)->with('metaContent', $metaContent)->with('metaKeywords', $metaKeywords);
 })->where('id', '[0-9]+');
 
 /// Filtrar portfolio por skill 

@@ -20,7 +20,14 @@ class CvrequestController extends Controller
 {
     public function create()
     {
-        return view('cv-request.get-my-cv');
+        $metaTitle    = 'Get my CV';
+        $metaContent  = 'I am pleased to present my CV for your consideration as a PHP & Front-end Developer.';
+        $metaKeywords = 'cv, manchester, web manchester,';
+
+        return view('cv-request.get-my-cv')
+                ->with('metaTitle', $metaTitle)
+                ->with('metaContent', $metaContent)
+                ->with('metaKeywords', $metaKeywords);
     }
 
     public function store(CvFormRequest $request)

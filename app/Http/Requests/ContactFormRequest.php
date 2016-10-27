@@ -29,7 +29,8 @@ class ContactFormRequest extends Request
             'email'     => 'required|email|max:255',
             'phone'     => 'min:5|max:12',
             'company'   => 'min:1|max:255',
-            'message'   => 'required|min:3|max:9999'
+            'message'   => 'required|min:3|max:9999',
+            'g-recaptcha-response' => 'required|captcha'
         ];
     }
 }

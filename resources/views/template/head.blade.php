@@ -7,7 +7,8 @@
     <?php 
     if(!isset($metaTitle))      $metaTitle="";
     if(!isset($metaContent))    $metaContent="";
-    if(!isset($metaKeywords))    $metaKeywords="";
+    if(!isset($metaKeywords))   $metaKeywords="";
+    if(!isset($ogImage))        $ogImage='/images/carlos-castillo-og-image.jpg';//$ogImage=URL::to('/images/carlos-castillo-og-image.jpg');
     ?>
     <title>{{ $metaTitle }} | {{ Config::get('settings.sitename') }}</title>    
     <meta name="title" content="{{ $metaTitle }} | {{ Config::get('settings.sitename') }}">
@@ -18,7 +19,6 @@
     <meta property="og:description" content="{{ $metaContent }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="{{ $metaKeywords }}{{ Config::get('settings.keywords') }}">
-    <meta property="og:image" content="{{ URL::to('/img/og-image.jpg') }}"/>
     <meta name="resource-type" content="document">
     <meta name="revisit-after" content="7 days">
     <meta name="classification" content="Business">
@@ -39,6 +39,8 @@
     <link rel="canonical" href="{{ Request::fullUrl() }}">
     <meta property="og:url" content="{{ Request::fullUrl() }}">
     <meta property="og:site_name" content="{{ Config::get('settings.sitename') }}">
+    <meta property="og:image" content="{{ $ogImage }}"/>
+
 
     <!-- Favicon -->
     <link rel="manifest" href="{{ URL::to('icons/manifest.json') }}">
