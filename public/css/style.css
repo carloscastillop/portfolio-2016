@@ -395,11 +395,37 @@ footer {
       text-align: center; }
   @media screen and (max-width: 1200px) {
     .eachSkill .thumbnail {
-      height: 140px; } }
-  @media screen and (max-width: 1024px) {
+      height: auto;
+      min-height: 50px; } }
+  @media screen and (max-width: 990px) {
     .eachSkill .thumbnail {
-      height: 160px; } }
+      height: auto;
+      min-height: 160px; } }
   @media screen and (max-width: 790px) {
+    .eachSkill .thumbnail {
+      height: auto;
+      min-height: 175px; } }
+  @media screen and (max-width: 740px) {
+    .eachSkill .thumbnail {
+      height: auto;
+      min-height: 220px; } }
+  @media screen and (max-width: 650px) {
+    .eachSkill .thumbnail {
+      height: auto;
+      min-height: 190px; } }
+  @media screen and (max-width: 580px) {
+    .eachSkill .thumbnail {
+      height: auto;
+      min-height: 170px; } }
+  @media screen and (max-width: 420px) {
+    .eachSkill .thumbnail {
+      height: auto;
+      min-height: 116px; } }
+  @media screen and (max-width: 380px) {
+    .eachSkill .thumbnail {
+      height: auto;
+      min-height: 100px; } }
+  @media screen and (max-width: 320px) {
     .eachSkill .thumbnail {
       height: auto;
       min-height: 85px; } }
@@ -769,11 +795,37 @@ body.modal-open #wrap {
   height: 70px; }
   @media screen and (max-width: 1200px) {
     .footerSkills .SkillsList .thumbnail {
-      height: 50px; } }
+      height: auto;
+      min-height: 50px; } }
   @media screen and (max-width: 990px) {
     .footerSkills .SkillsList .thumbnail {
-      height: 160px; } }
+      height: auto;
+      min-height: 160px; } }
   @media screen and (max-width: 790px) {
+    .footerSkills .SkillsList .thumbnail {
+      height: auto;
+      min-height: 175px; } }
+  @media screen and (max-width: 740px) {
+    .footerSkills .SkillsList .thumbnail {
+      height: auto;
+      min-height: 210px; } }
+  @media screen and (max-width: 650px) {
+    .footerSkills .SkillsList .thumbnail {
+      height: auto;
+      min-height: 190px; } }
+  @media screen and (max-width: 580px) {
+    .footerSkills .SkillsList .thumbnail {
+      height: auto;
+      min-height: 85px; } }
+  @media screen and (max-width: 420px) {
+    .footerSkills .SkillsList .thumbnail {
+      height: auto;
+      min-height: 116px; } }
+  @media screen and (max-width: 380px) {
+    .footerSkills .SkillsList .thumbnail {
+      height: auto;
+      min-height: 100px; } }
+  @media screen and (max-width: 320px) {
     .footerSkills .SkillsList .thumbnail {
       height: auto;
       min-height: 85px; } }

@@ -114,7 +114,7 @@
 
             <div class="row">
                 <!-- FORM WEB -->
-                <div class="col-xs-12 col-sm-6 col-md-12">
+                <div class="col-sm-6 col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading"><h3>Are you looking for a web app?</h3></div>
                         <div class="panel-body">
