@@ -940,4 +940,19 @@ img.lazy {
 i.fa.fa-big {
   font-size: 150%; }
 
+/* ERROR */
+.error {
+  margin: 0 auto;
+  text-align: center; }
+
+.error-code {
+  bottom: 60%;
+  color: #2d353c;
+  font-size: 96px;
+  line-height: 100px; }
+
+.error-desc {
+  font-size: 12px;
+  color: #647788; }
+
 /*# sourceMappingURL=style.css.map */
