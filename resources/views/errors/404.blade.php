@@ -14,6 +14,7 @@
 
 <div class="container">
     <div class="error">
+        <img src="http://i.giphy.com/9Tkx0181SifaE.gif" class="img-responsive thumbnail center-block">
         <div class="error-code m-b-10 m-t-20">404 <i class="fa fa-warning"></i></div>
         <h3 class="font-bold">We couldn't find the page..</h3>
         <div class="error-desc">
