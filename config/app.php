@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://carloscastillo.cl'),
+    'url' => env('APP_URL', 'http://le-url.co.uk'),
 
     /*
     |--------------------------------------------------------------------------
@@ -164,7 +164,7 @@ return [
         /*
         * DEBUGBAR https://github.com/barryvdh/laravel-debugbar ...
         */
-        Barryvdh\Debugbar\ServiceProvider::class,
+        //Barryvdh\Debugbar\ServiceProvider::class,
 
         /*
         * no-captcha https://github.com/anhskohbo/no-captcha  ...
@@ -218,7 +218,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        //'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
     ],
 

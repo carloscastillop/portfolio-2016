@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Contact extends Model
 {
+	use MailTrait;
+
+	use LogTrait;
+
     protected $table = 'contacts';
 
     public function subject()

@@ -39,11 +39,13 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
-                <div class="logoLogin">
-                    <img src="{{ URL::to('/images/logo.png') }}" alt="" class="img-responsive center-block">
+                <div class="logoLogin" style="margin-top: 5px">
+                    
                 </div>
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
+                        
+                        <img src="http://i.giphy.com/l41lIV220U3I4mVdC.gif" alt="" class="img-responsive center-block thumbnail">
                         <h3 class="panel-title">Welcome Admin!</h3>
                     </div>
                     <div class="panel-body">

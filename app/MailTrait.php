@@ -1,13 +1,40 @@
 <?php
 
-namespace Portfolio\Http\Controllers;
+namespace Portfolio;
 
-use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Model;
 
-use Portfolio\Http\Requests;
+trait MailTrait {
 
-class SendMailController extends Controller
-{
+    public function miMetodo(){
+		return 'Este es el resultado de miMetodo de miTrait';
+    }
+
+
+    /*Send email to admin from contact form*/
+    public function sendMailAdminContact($cv){
+
+        \Mail::queue('emails.contact',
+            array(
+                'name'      => $cv->name,
+                'email'     => $cv->email,
+                'company'   => $cv->company,
+                'subject'   => $cv->subject->name,
+                'mobile'    => $cv->mobile,
+                'bodyMessage'    => $cv->message,
+                'ip'        => $cv->IP
+            ), function($message) use ($cv)
+        {
+            $message->to('info@carloscastillo.cl', 'Carlos Castillo')
+                    ->replyTo($cv->email, $cv->name)
+                    ->cc($cv->email, $cv->name)
+                    ->subject('New Contact from '.$cv->name);
+        });
+        return true;
+    }
+
+
+    /* notify when some user want my CV */
     public static function sendMailAdminCvRequest($cv){
 
     	\Mail::queue('emails.cv-request',
@@ -27,9 +54,7 @@ class SendMailController extends Controller
 
     }
 
-    
-
-    //cuando elijo si enviar
+    //SEND MY CV BY EMAIL
     public static function sendMailuserCvRequestYes($cvRequest, $user){
     	
     	$ago =  \Carbon\Carbon::createFromTimeStamp(strtotime($cvRequest->created_at))->diffForHumans();
@@ -55,4 +80,6 @@ class SendMailController extends Controller
 		return true;
 
     }
+
+
 }

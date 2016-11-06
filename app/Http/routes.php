@@ -100,6 +100,10 @@ Route::get('/login', function () {
     return \Redirect::to('backend'); 
 });
 
+Route::get('/error', function () {
+    return view('errors.general');
+});
+
 /*=======================*/
 /* ===== CV REQUEST ==== */
 /*=======================*/
@@ -142,24 +146,22 @@ Route::get( '/backend'           		,'AdminController@adminWelcome');
 Route::post('/backend/login'         	,'AdminController@adminDoLogin');
 Route::get( '/exit'               		,'AdminController@doLogout');
 
-$router->group(['middleware' => 'auth'], function($router) {
 
-	Route::group(['prefix' => 'backend'], function() {
+Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function() {
 	    
-	    //DASHBOARD
-	    Route::get('/dashboard'        ,'AdminController@adminDashboard');
+    //DASHBOARD
+    Route::get('/dashboard'        ,'AdminController@adminDashboard');
 
-	    //SKILLs
-	    Route::resource('skills'	   ,'SkillController');
-	    Route::post('skills/image'     ,'SkillController@uploadImage');
-	    Route::post('skills/imagecrop'   ,'SkillController@uploadImageCrop');
+    //SKILLs
+    Route::resource('skills'	   ,'SkillController');
+    Route::post('skills/image'     ,'SkillController@uploadImage');
+    Route::post('skills/imagecrop'   ,'SkillController@uploadImageCrop');
 
-	    //Projects
-	    Route::resource('projects'	   		,'ProjectController');
-	    Route::post('projects/image'     	,'ProjectController@uploadImage');
-	    Route::post('projects/imagecrop'   	,'ProjectController@uploadImageCrop');
+    //Projects
+    Route::resource('projects'	   		,'ProjectController');
+    Route::post('projects/image'     	,'ProjectController@uploadImage');
+    Route::post('projects/imagecrop'   	,'ProjectController@uploadImageCrop');
 
-	});
 });
 
 

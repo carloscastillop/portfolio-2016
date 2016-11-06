@@ -44,8 +44,7 @@ class CvrequestController extends Controller
         $cv->active    = 1;
         $cv->save();
 
-
-        if(SendMailController::sendMailAdminCvRequest($cv)){
+        if($cv->sendMailAdminCvRequest($cv)){
             return \Redirect::route('get-my-cv')
             ->with('message', 'The system will validate your email, if all is OK, you will receive an email with my CV. Thank you!! ');
         }else{

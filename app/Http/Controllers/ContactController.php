@@ -21,11 +21,9 @@ class ContactController extends Controller
             'op' => 'exists:subjects,id,active,1'
         ]);
         if ($validator->fails()) {
-            return \Redirect::route('contact');
+            return redirect()->route('contact');
         }else{
-        	if($request->get('op')!=null){
-        		$op = $request->get('op');
-        	}
+        	$op = $request->get('op','');
         }
 
 
@@ -45,15 +43,8 @@ class ContactController extends Controller
 
     public function store(ContactFormRequest $request)
     {
-    	$phone = "";
-    	if($request->get('phone')!=null){
-    		$phone = $request->get('phone');	
-    	}
-
-    	$company = "";
-    	if($request->get('company')!=null){
-    		$company = $request->get('company');	
-    	}	
+    	$phone      = $request->get('phone','');
+        $company    = $request->get('company','');
 
     	$cv            = new Contact;
         $cv->email     = strtolower($request->get('email'));
@@ -67,11 +58,16 @@ class ContactController extends Controller
         $cv->message   = $request->get('message');
         $cv->save();
 
-        if(SendMailController::sendMailAdminContact($cv)){
-            return \Redirect::route('contact')
-            ->with('message', 'I have received your message and I will contact you shortly. ');
+        if($cv->sendMailAdminContact($cv)){
+            $text = 'New contact email sended from: '.$cv->name.' - '.$cv->email;
+            LogController::createLog($text);
+
+            return redirect()->route('contact')->with('message', 'I have received your message and I will contact you shortly. ');
         }else{
-            echo "ERROR"; exit;
+            $text = 'ERROR Sending email on Contact/form section';
+            LogController::createLog($text);
+
+            return redirect()->route('error');
         }
     }
 }

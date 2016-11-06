@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Log extends Model
 {
-    protected $table = 'logs';
+	use LogTrait;
+
+	protected $table = 'logs';
 }
