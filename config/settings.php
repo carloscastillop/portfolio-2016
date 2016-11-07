@@ -19,13 +19,7 @@ $setting_data['git'] 		= 'https://gitlab.com/carloscastillop ';
 $setting_data['skype'] 		= 'carloscastillop';
 
 
-//////DATOS CONTACTO
-$setting_data['contactoDireccion']  ='Carretera General San Martín km10, local B-14, Colina, Chicureo, Santiago, Chile'; //{{ Config::get('settings.contactoDireccion') }}
-$setting_data['contactoFono']  	='+56 2123 4567'; //{{ Config::get('settings.contactoFono') }}
-$setting_data['contactoEmail']  ='info@candyspot.cl'; //{{ Config::get('settings.contactoEmail') }}
 
-$setting_data['contactoEmailTo']  	='info@candyspot.cl';
-$setting_data['contactoNameTo']  	="CandySpot";
 
 
 //////ARCHIVOS
@@ -40,8 +34,8 @@ $setting_data['uploadImagesProducts']  ="/uploads/products/";
 $setting_data['uploadCV']  		="/uploads/"; //Config::get('settings.uploadCV')
 
 ////SMS
-$setting_data['smsUser']  		= "carloscastillo"; //Config::get('settings.smsUser')
-$setting_data['smsPassword']  	= "carloscastillopardo"; //Config::get('settings.smsPassword')
+$setting_data['smsUser']  		= env('SMSUSER'); //Config::get('settings.smsUser')
+$setting_data['smsPassword']  	= env('SMSPASSWORD'); //Config::get('settings.smsPassword')
 
 /////CV REQUEST
 $setting_data['emailCopia']  	= "info@carloscastillo.cl"; //Config::get('settings.emailCopia')
