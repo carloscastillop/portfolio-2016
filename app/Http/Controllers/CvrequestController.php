@@ -45,10 +45,17 @@ class CvrequestController extends Controller
         $cv->save();
 
         if($cv->sendMailAdminCvRequest($cv)){
+
+            $text = 'email sended on CV Request/form section from: '.$cv->name.' - '.$cv->email;
+            LogController::createLog($text);
+
             return \Redirect::route('get-my-cv')
             ->with('message', 'The system will validate your email, if all is OK, you will receive an email with my CV. Thank you!! ');
         }else{
-            echo "ERROR"; exit;
+            $text = 'ERROR Sending email on CV Request/form section';
+            LogController::createLog($text);
+
+            return redirect()->route('error');
         }
 
     	
@@ -84,10 +91,11 @@ class CvrequestController extends Controller
             $code->sends    = $timeSend+1;
             $code->save(); 
 
-            if(SendMailController::sendMailuserCvRequestYes($code, $user)){
-                echo 'OK, email sended'; exit;
+
+            if($code->sendMailuserCvRequestYes($code, $user)){
+                echo 'OK, email sended'; 
             }else{
-                echo 'Ha ocurrido un error al enviar el email'; exit;
+                echo 'Ha ocurrido un error al enviar el email';
             }
             
 
@@ -98,6 +106,6 @@ class CvrequestController extends Controller
 
     public function noCvRequest($codigo)
     {
-        echo $codigo; exit;
+        echo $codigo;
     }
 }

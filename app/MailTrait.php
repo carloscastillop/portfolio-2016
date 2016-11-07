@@ -35,7 +35,7 @@ trait MailTrait {
 
 
     /* notify when some user want my CV */
-    public static function sendMailAdminCvRequest($cv){
+    public function sendMailAdminCvRequest($cv){
 
     	\Mail::queue('emails.cv-request',
 		    array(
@@ -55,12 +55,11 @@ trait MailTrait {
     }
 
     //SEND MY CV BY EMAIL
-    public static function sendMailuserCvRequestYes($cvRequest, $user){
+    public function sendMailuserCvRequestYes($cvRequest, $user){
     	
     	$ago =  \Carbon\Carbon::createFromTimeStamp(strtotime($cvRequest->created_at))->diffForHumans();
 
-        $portfolio = $user->projects()->orderBy('id', 'desc')->get();
-
+        $portfolio = $user->projects()->orderBy('id', 'desc')->take(5)->get();
 
     	\Mail::queue('emails.cv-request-yes',
 		    array(
@@ -71,7 +70,7 @@ trait MailTrait {
                 'userFile' 	=> \Config::get('settings.uploadCV').$user->cv,
                 'portfolio' => $portfolio,
                 'ago'	  	=> $ago     
-            ), function($message) use ($cvRequest, $user)
+            ), function($message) use ($cvRequest, $user, $portfolio)
 		{
 		    $message->to($cvRequest->email, $cvRequest->name)
                     ->bcc(\Config::get('settings.emailCopia'), \Config::get('settings.nombreCopia'))
